@@ -21,6 +21,15 @@ import Header from './components/Header/Header';
 import OneSignal from 'react-onesignal';
 
 const App = () => {
+	localStorage.setItem(
+		'red_wing_token',
+		'BAhbB0kiAbB7ImNsaWVudF9pZCI6IjdkMDM2OTdhZGM4ODY5OTZhNjczNjM0Yjg5ZDUxZDhmZWJiMjk5NzkiLCJleHBpcmVzX2F0IjoiMjAyMy0wOS0xOFQwODo0ODozOVoiLCJ1c2VyX2lkcyI6WzQ4NTA1NjYzXSwidmVyc2lvbiI6MSwiYXBpX2RlYWRib2x0IjoiMjQ2NmY3MmRhNjg5YTkzODdiYmNmYTRjODMwOWYyYzcifQY6BkVUSXU6CVRpbWUNSOIewPYHfsIJOg1uYW5vX251bWkCQwE6DW5hbm9fZGVuaQY6DXN1Ym1pY3JvIgcyMDoJem9uZUkiCFVUQwY7AEY=--c795d257b02b4d0cbc781dfa4fe2e655262e71a1'
+	);
+	localStorage.setItem(
+		'red_wing_token_expiry_date',
+		'Mon Sep 18 2023 14:18:40 GMT+0530 (India Standard Time)'
+	);
+
 	const allScreenData = useData();
 	const [globalState, setGlobalState] = useState(allScreenData);
 	const firstTimeRef = useRef(true);

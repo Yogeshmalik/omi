@@ -117,7 +117,7 @@ function TempCol({ selectedProject, setSelectedProject, setTopStatisticsCount })
 							style={{
 								color: '#14fa01',
 								width: '22%',
-								background:"transparent"
+								background: 'transparent'
 							}}
 						>
 							{times[activity.activityName]}
@@ -165,3 +165,4 @@ function TempCol({ selectedProject, setSelectedProject, setTopStatisticsCount })
 }
 
 export default TempCol;
+

@@ -11,9 +11,11 @@
 	display: grid;
 	font-family: Poppins;
 	line-height: 21px;
-	grid-template-columns: 1fr 1.3fr 2fr;
+	/* grid-template-columns: 1fr 1.3fr 2fr; */
+	grid-template-columns: 2fr 1fr 1.3fr;
 	grid-template-rows: 1fr;
-	grid-template-areas: 'a b c';
+	/* grid-template-areas: 'a b c'; */
+	grid-template-areas: 'c a b'; /* to make teamWork 1st column */
 	overflow-y: hidden;
 }
 
@@ -80,7 +82,7 @@
 	cursor: pointer;
 	color: #f99de1;
 	line-height: 12px;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .projectHeading,
 .projectInputs {
@@ -92,16 +94,17 @@
 }
 .projectInputs {
 	background: #ffffff63;
-    border-radius: 3px;
-    border: none;
-    width: 50%;
-    margin: 0 2px;
-    color: white;
-    padding-left: 5px;
+	border-radius: 3px;
+	border: none;
+	width: 50%;
+	margin: 0 2px;
+	color: white;
+	padding-left: 5px;
 }
-.projectInputs:focus,.projectInputs:hover{
-	opacity:1 !important;
-	cursor:pointer;
+.projectInputs:focus,
+.projectInputs:hover {
+	opacity: 1 !important;
+	cursor: pointer;
 	border: none;
 	outline-width: 0px;
 }
@@ -174,3 +177,99 @@ input[type='number'] {
 table {
 	border: none;
 }
+
+/* ======================== Yogesh ========================== */
+
+.buttonTop {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+/* Style for the maximize and minimize buttons */
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 18px;
+	color: #fff;
+	margin-right: 10px;
+	transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+	transform: scale(1.1); /* Increase size on hover */
+}
+
+/* Style for the maximize and minimize icons */
+.icon {
+	font-size: 18px;
+}
+
+/* Animation for maximizing column */
+.column-maximize-enter {
+	transform: scale(0);
+	opacity: 0;
+}
+
+.column-maximize-enter-active {
+	transform: scale(1);
+	opacity: 1;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.column-maximize-exit {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.column-maximize-exit-active {
+	transform: scale(0);
+	opacity: 0;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Animation for minimizing column */
+.column-minimize-enter {
+	transform: scale(1.2);
+	opacity: 0.8;
+}
+
+.column-minimize-enter-active {
+	transform: scale(1);
+	opacity: 1;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.column-minimize-exit {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.column-minimize-exit-active {
+	transform: scale(1.2);
+	opacity: 0.8;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Style for the maximize icon */
+.fa-expand::before {
+	content: '\f065'; /* Unicode character code for the maximize icon */
+	font-family: 'Font Awesome 5 Free'; /* Adjust to your FontAwesome font-family */
+}
+
+/* Style for the minimize icon */
+.fa-compress::before {
+	content: '\f066'; /* Unicode character code for the minimize icon */
+	font-family: 'Font Awesome 5 Free'; /* Adjust to your FontAwesome font-family */
+}
+
+.minimized {
+	display: none;
+}
+.maximized {
+	width: 100vw;
+}
+

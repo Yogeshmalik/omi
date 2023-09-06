@@ -701,7 +701,7 @@ const TeamWork = ({
 
 const TableRow = props => {
 	// Check if props.active is not null before accessing it
-	const activeCount = props.active ? parseInt(props.active.split('(')[0]) : 0;
+	const activeCount = props.active ? parseInt(props?.active?.split('(')[0]) : 0;
 
 	const getProjectname = projectid => {
 		for (let i = 0; i < props.projectsdata.length; i++) {
@@ -770,7 +770,7 @@ const TableRow = props => {
 		delay: 500
 	};
 	const longPressAvatarEvent = useLongPress(onAvatarLongPress, onAvatarClick, defaultOptions);
-	console.log(parseInt(props.active.split('(')[0]) - props.completed_todo);
+	console.log(parseInt(props.active?.split('(')[0]) - props.completed_todo);
 	console.log(props.active);
 	return (
 		<tr style={{ marginTop: '0', paddingTop: '0' }}>
@@ -800,7 +800,7 @@ const TableRow = props => {
 							target='_blank'
 							rel='noreferrer'
 						>
-							{props.name.split(' ')[0]}{' '}
+							{props?.name?.split(' ')[0]}{' '}
 						</a>
 					</Grid>
 				</Grid>

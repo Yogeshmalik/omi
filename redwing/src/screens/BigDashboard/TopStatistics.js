@@ -8,3 +8,4 @@ export const TopStatistics = ({ text, count }) => {
 		</div>
 	);
 };
+
