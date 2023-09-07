@@ -63,7 +63,7 @@ const TeamWork = ({
 	const [data, setData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : {}
 	);
-	console.log("data=", data)
+	console.log('data=', data);
 	const [projectData, setProjectData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData).projects : []
 	);
@@ -78,23 +78,19 @@ const TeamWork = ({
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [deleteMember, setDeleteMember] = useState({ img: '', name: '', user_id: '' });
 	/* YSM start */
-	const [sortingOrder, setSortingOrder] = useState('ASC');
-	const [sortingColumn, setSortingColumn] = useState('tasks_count');
-	
-	const handleSorting = (col) => {
-	  if (sortingColumn === col) {
-		// Reverse the sorting order if the same column is clicked
-		setSortingOrder(sortingOrder === 'ASC' ? 'DESC' : 'ASC');
-	  } else {
-		// Set the new sorting column and initial sorting order
-		setSortingColumn(col);
-		setSortingOrder('ASC');
-	  }
-	
-	  // Call your sorting function here
-	  sorting(col, sortingOrder);
+	const handleSorting = col => {
+		if (sortingColumn === col) {
+			// Reverse the sorting order if the same column is clicked
+			setSortingOrder(sortingOrder === 'DEC' ? 'ASC' : 'DEC');
+		} else {
+			// Set the new sorting column and initial sorting order
+			setSortingColumn(col);
+			setSortingOrder('ASC');
+		}
+
+		// Call your sorting function here
+		sorting(col, sortingOrder);
 	};
-	
 
 	/* YSM end */
 
@@ -104,7 +100,10 @@ const TeamWork = ({
 	}, []);
 
 	const sorting = (col, sortingOrder1) => {
-		if (col === 'tasks_count' || col === 'active_count') {
+		// if (col === 'tasks_count' || col === 'active_count') {
+		/* YSM start */
+		if (col === 'tasks_count' || col === 'completed_todo') {
+			/* YSM end */
 			if (sortingOrder1 === 'ASC') {
 				const sorted = [...users].sort((a, b) => (a[col] < b[col] ? 1 : -1));
 
@@ -118,7 +117,24 @@ const TeamWork = ({
 
 				setSortingOrder('ASC');
 			}
-		} else if (col === 'project_ids') {
+		} else if (col === 'tasks_count' || col === 'active_count') {
+			/* YSM end */
+			if (sortingOrder1 === 'ASC') {
+				const sorted = [...users].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+
+				setUsers(sorted);
+
+				setSortingOrder('DEC');
+			} else if (sortingOrder1 === 'DEC') {
+				const sorted = [...users].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+
+				setUsers(sorted);
+
+				setSortingOrder('ASC');
+			}
+		}
+		
+		else if (col === 'project_ids') {
 			if (sortingOrder1 === 'ASC') {
 				const sorted = [...users].sort((a, b) => (a[col].length < b[col].length ? 1 : -1));
 
@@ -394,7 +410,8 @@ const TeamWork = ({
 											</th>
 
 											<th
-											onClick={() => handleSorting('active_count')}
+												/* YSM start */
+												onClick={() => handleSorting('completed_todo')}
 												style={{
 													textAlign: 'left',
 													position: 'relative',
@@ -405,19 +422,18 @@ const TeamWork = ({
 													fontFamily: 'Poppins',
 													fontWeight: '500',
 													width: 'max-content',
-													cursor: 'pointer', 
+													cursor: 'pointer'
+													/* YSM end */
 												}}
 											>
 												Activity
-												{sortingColumn === 'active_count' && (
-    <span style={{ color: 'white', marginLeft: '2px' }}>
-      {sortingOrder === 'ASC' ? (
-        <ArrowUpwardIcon />
-      ) : (
-        <ArrowDownwardIcon />
-      )}
-    </span>
-  )}
+												{/* YSM start */}
+												{sortingColumn === 'completed_todo' && (
+													<span style={{ color: 'white', marginLeft: '2px' }}>
+														{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
+													</span>
+												)}
+												{/* YSM end */}
 											</th>
 
 											<th

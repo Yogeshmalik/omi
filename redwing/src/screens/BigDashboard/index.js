@@ -42,6 +42,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	const [data, setData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : {}
 	);
+	console.log('YSM', data);
 	const [projectData, setProjectData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData).projects : []
 	);
@@ -213,6 +214,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 							<TopStatistics text={'Tasks Today'} count={topStatisticsCount.tasksToday} />
 							<TopStatistics text={'Team Load'} count={totalTickets} />
 							<TopStatistics text={'Completions'} count={completedTask} />
+							<TopStatistics text={'Sleepings'} count={data?.sleeping_task} />
 						</div>
 					</div>
 					{/* ======================= Yogesh Start ========================== */}
