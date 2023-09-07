@@ -18,6 +18,20 @@
 	grid-template-areas: 'c a b'; /* to make teamWork 1st column */
 	overflow-y: hidden;
 }
+/* ======================== YSM start ========================== */
+.smalldashboard{
+	min-height: 100%;
+	display: grid;
+	font-family: Poppins;
+	line-height: 21px;
+	grid-template-columns: 2fr 0fr 1.3fr; /* hide the activity column if estimate = 0 */
+	grid-template-rows: 1fr;
+	grid-template-areas: 'c a b'; /* to make teamWork 1st column */
+	overflow-y: hidden;
+}
+
+/* ======================== YSM end ========================== */
+
 
 .activity {
 	grid-area: a;
@@ -256,14 +270,14 @@ button:hover {
 
 /* Style for the maximize icon */
 .fa-expand::before {
-	content: '\f065'; /* Unicode character code for the maximize icon */
-	font-family: 'Font Awesome 5 Free'; /* Adjust to your FontAwesome font-family */
+	content: '\f065';
+	font-family: 'Font Awesome 5 Free';
 }
 
 /* Style for the minimize icon */
 .fa-compress::before {
-	content: '\f066'; /* Unicode character code for the minimize icon */
-	font-family: 'Font Awesome 5 Free'; /* Adjust to your FontAwesome font-family */
+	content: '\f066';
+	font-family: 'Font Awesome 5 Free';
 }
 
 .minimized {
@@ -273,3 +287,12 @@ button:hover {
 	width: 100vw;
 }
 
+.activity {
+	grid-area: a;
+	background: linear-gradient(175.2deg, #063437 0%, rgba(0, 0, 0, 0) 101.53%);
+	width: 100%; /* Added to take full width when maximized */
+	display: grid; /* Added for proper sizing */
+	grid-template-rows: auto 1fr; /* Added for proper sizing */
+	overflow: hidden;
+	/* display: none; */
+}

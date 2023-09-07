@@ -15,8 +15,8 @@ import { CSSTransition } from 'react-transition-group';
 const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	/* ======================= Yogesh start ========================== */
 	// State variables for column maximization
-	const [isActivityMaximized, setIsActivityMaximized] = useState(true);
-	const [isProjectMaximized, setIsProjectMaximized] = useState(true);
+	const [isActivityMaximized, setIsActivityMaximized] = useState(false);
+	const [isProjectMaximized, setIsProjectMaximized] = useState(false);
 	const [isTeamWorkMaximized, setIsTeamWorkMaximized] = useState(true);
 
 	const toggleMaximize = column => {
@@ -119,7 +119,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	}, [data]);
 
 	const [topStatisticsCount, setTopStatisticsCount] = useState({
-		hoursOfWeek: 0,
+		hoursOfWeek: 1,
 		completion: 0,
 		worthOrders: '$0',
 		tasksToday: data.tickets_created_today,
@@ -153,19 +153,21 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 						</>
 					)}
 				</button>
-				<button onClick={() => toggleMaximize('activity')}>
-					{isActivityMaximized ? (
-						<>
-							<FontAwesomeIcon icon={faCompress} className={styles.icon} />
-							{' Activity'}
-						</>
-					) : (
-						<>
-							<FontAwesomeIcon icon={faExpand} className={styles.icon} />
-							{' Activity'}
-						</>
-					)}
-				</button>
+				{topStatisticsCount.hoursOfWeek !== 0 && (
+					<button onClick={() => toggleMaximize('activity')}>
+						{isActivityMaximized ? (
+							<>
+								<FontAwesomeIcon icon={faCompress} className={styles.icon} />
+								{' Activity'}
+							</>
+						) : (
+							<>
+								<FontAwesomeIcon icon={faExpand} className={styles.icon} />
+								{' Activity'}
+							</>
+						)}
+					</button>
+				)}
 				<button onClick={() => toggleMaximize('project')}>
 					{isProjectMaximized ? (
 						<>
@@ -181,13 +183,22 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 				</button>
 			</div>
 			{/* ======================= Yogesh End ========================== */}
-			<div className={styles.bigdashboard}>
+			{/* <div className={styles.bigdashboard}> */}
+			{/* ======================= Yogesh Start ========================== */}
+			<div
+				className={
+					topStatisticsCount.hoursOfWeek !== 0 ? styles.bigdashboard : styles.smalldashboard
+				}
+			>
+				{/* ======================= Yogesh End ========================== */}
 				<Helmet>
 					<meta name='apple-mobile-web-app-capable' content='yes' />
 				</Helmet>
 
 				{/* <div className={styles.teamWork}> */}
+				{/* ======================= Yogesh Start ========================== */}
 				<div className={`${styles.teamWork} ${isTeamWorkMaximized ? styles.maximized : ''}`}>
+					{/* ======================= Yogesh Ends ========================== */}
 					<div className={styles.outertopStatisticsBar}>
 						<div className={styles.topStatisticsBar}>
 							{/* ======================= Yogesh Start ========================== */}
@@ -216,13 +227,13 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 						}}
 						unmountOnExit
 					>
-						<div
+						{/* <div
 							className={`${styles.alignTeamContent} ${
 								isTeamWorkMaximized ? styles.maximized : ''
 							}`}
-						>
-							{/* ======================= Yogesh Ends ========================== */}
-							{/* <div className={styles.alignTeamContent}> */}
+						> */}
+						{/* ======================= Yogesh Ends ========================== */}
+						<div className={styles.alignTeamContent}>
 							<TeamWork
 								isInverted={false}
 								screenIndex={2}
@@ -236,51 +247,53 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 					{/* ======================= Yogesh ends ========================== */}
 				</div>
 				{/* <div className={styles.activity}> */}
-				<div className={`${styles.activity} ${isActivityMaximized ? styles.maximized : ''}`}>
-					<div className={styles.outertopStatisticsBar}>
-						<div className={styles.topStatisticsBar}>
-							{/* ======================= Yogesh Start ========================== */}
-							<button onClick={() => toggleMaximize('activity')}>
-								{isActivityMaximized ? (
-									<FontAwesomeIcon icon={faCompress} className={styles.icon} />
-								) : (
-									<FontAwesomeIcon icon={faExpand} className={styles.icon} />
-								)}
-							</button>
-							{/* ======================= Yogesh End ========================== */}
-							<TopStatistics text={'Hours of work'} count={topStatisticsCount.hoursOfWeek} />
-							<TopStatistics text={'Completion'} count={topStatisticsCount.completion} />
-						</div>
-					</div>
-					{/* ======================= Yogesh Start ========================== */}
-					<CSSTransition
-						in={isActivityMaximized}
-						timeout={300}
-						classNames={{
-							enter: styles['column-maximize-enter'],
-							enterActive: styles['column-maximize-enter-active'],
-							exit: styles['column-maximize-exit'],
-							exitActive: styles['column-maximize-exit-active']
-						}}
-						unmountOnExit
-					>
-						<div
-							className={`${styles.alignActivitiesContent} ${
-								isActivityMaximized ? styles.maximized : ''
-							}`}
-						>
-							{/* ======================= Yogesh Ends ========================== */}
-							{/* <div className={styles.alignActivitiesContent}> */}
-							<ActivitiesColumn
-								setTopStatisticsCount={setTopStatisticsCount}
-								setSelectedProject={setSelectedProject}
-								selectedProject={selectedProject}
-							/>
+				{topStatisticsCount.hoursOfWeek !== 0 && (
+					<div className={`${styles.activity} ${isActivityMaximized ? styles.maximized : ''}`}>
+						<div className={styles.outertopStatisticsBar}>
+							<div className={styles.topStatisticsBar}>
+								{/* ======================= Yogesh Start ========================== */}
+								<button onClick={() => toggleMaximize('activity')}>
+									{isActivityMaximized ? (
+										<FontAwesomeIcon icon={faCompress} className={styles.icon} />
+									) : (
+										<FontAwesomeIcon icon={faExpand} className={styles.icon} />
+									)}
+								</button>
+								{/* ======================= Yogesh End ========================== */}
+								<TopStatistics text={'Hours of work'} count={topStatisticsCount.hoursOfWeek} />
+								<TopStatistics text={'Completion'} count={topStatisticsCount.completion} />
+							</div>
 						</div>
 						{/* ======================= Yogesh Start ========================== */}
-					</CSSTransition>
-					{/* ======================= Yogesh ends ========================== */}
-				</div>
+						<CSSTransition
+							in={isActivityMaximized}
+							timeout={300}
+							classNames={{
+								enter: styles['column-maximize-enter'],
+								enterActive: styles['column-maximize-enter-active'],
+								exit: styles['column-maximize-exit'],
+								exitActive: styles['column-maximize-exit-active']
+							}}
+							unmountOnExit
+						>
+							<div
+								className={`${styles.alignActivitiesContent} ${
+									isActivityMaximized ? styles.maximized : ''
+								}`}
+							>
+								{/* ======================= Yogesh Ends ========================== */}
+								{/* <div className={styles.alignActivitiesContent}> */}
+								<ActivitiesColumn
+									setTopStatisticsCount={setTopStatisticsCount}
+									setSelectedProject={setSelectedProject}
+									selectedProject={selectedProject}
+								/>
+							</div>
+							{/* ======================= Yogesh Start ========================== */}
+						</CSSTransition>
+						{/* ======================= Yogesh ends ========================== */}
+					</div>
+				)}
 				{/* <div className={styles.project}> */}
 				<div className={`${styles.project} ${isProjectMaximized ? styles.maximized : ''}`}>
 					<div className={styles.outertopStatisticsBar}>

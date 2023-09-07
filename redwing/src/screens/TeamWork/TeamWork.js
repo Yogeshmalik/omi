@@ -63,6 +63,7 @@ const TeamWork = ({
 	const [data, setData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : {}
 	);
+	console.log("data=", data)
 	const [projectData, setProjectData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData).projects : []
 	);
@@ -76,6 +77,26 @@ const TeamWork = ({
 	const [sortingColumn, setSortingColumn] = useState('tasks_count');
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [deleteMember, setDeleteMember] = useState({ img: '', name: '', user_id: '' });
+	/* YSM start */
+	const [sortingOrder, setSortingOrder] = useState('ASC');
+	const [sortingColumn, setSortingColumn] = useState('tasks_count');
+	
+	const handleSorting = (col) => {
+	  if (sortingColumn === col) {
+		// Reverse the sorting order if the same column is clicked
+		setSortingOrder(sortingOrder === 'ASC' ? 'DESC' : 'ASC');
+	  } else {
+		// Set the new sorting column and initial sorting order
+		setSortingColumn(col);
+		setSortingOrder('ASC');
+	  }
+	
+	  // Call your sorting function here
+	  sorting(col, sortingOrder);
+	};
+	
+
+	/* YSM end */
 
 	useEffect(() => {
 		getTeamWorkData();
@@ -373,6 +394,7 @@ const TeamWork = ({
 											</th>
 
 											<th
+											onClick={() => handleSorting('active_count')}
 												style={{
 													textAlign: 'left',
 													position: 'relative',
@@ -382,10 +404,20 @@ const TeamWork = ({
 													lineHeight: '21px',
 													fontFamily: 'Poppins',
 													fontWeight: '500',
-													width: 'max-content'
+													width: 'max-content',
+													cursor: 'pointer', 
 												}}
 											>
 												Activity
+												{sortingColumn === 'active_count' && (
+    <span style={{ color: 'white', marginLeft: '2px' }}>
+      {sortingOrder === 'ASC' ? (
+        <ArrowUpwardIcon />
+      ) : (
+        <ArrowDownwardIcon />
+      )}
+    </span>
+  )}
 											</th>
 
 											<th
