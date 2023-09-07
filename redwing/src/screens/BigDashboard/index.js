@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress, faExpand } from '@fortawesome/free-solid-svg-icons';
 import { CSSTransition } from 'react-transition-group';
+import { TeamTabTop } from '.././TeamWork/Style';
 
 const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	/* ======================= Yogesh start ========================== */
@@ -27,11 +28,13 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	/* ======================= Yogesh end ========================== */
 	useEffect(() => {
 		getTeamWorkData();
-		setInterval(async () => getTeamWorkData(), 120000);
+		// setInterval(async () => getTeamWorkData(), 120000);
 	}, []);
 
 	const [totalTickets, setTotalTickets] = useState(0);
 	const [completedTask, setCompletedTask] = useState(0);
+	const [sleepingTask, setSleepingTask] = useState(0);
+	console.log('YSM2', sleepingTask);
 
 	const localStorageData = localStorage.getItem('redwing_data');
 
@@ -70,11 +73,13 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	}, [allusers]);
 
 	useEffect(() => {
+		setSleepingTask(data.sleeping_tasks);
 		if (allusers.users) {
 			const teamMembers = allusers.users.filter(user => user.user_id !== 33629907);
 			const totalCompleteTask = teamMembers.reduce((acc, user) => {
 				return acc + user.completed_todo;
 			}, 0);
+			console.log('Back', data.sleeping_tasks);
 			if (totalCompleteTask !== completedTask) {
 				setCompletedTask(totalCompleteTask);
 				setTopStatisticsCount(prev => {
@@ -85,7 +90,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 				});
 			}
 		}
-	}, [allusers]);
+	}, [allusers, data]);
 
 	const getTeamWorkData = () => {
 		// setLoading(true);
@@ -100,6 +105,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 				// console.log(res.data);
 				localStorage.setItem('redwing_data', JSON.stringify(res.data));
 				setData(res.data);
+				// setSleepingTask(res.data.sleeping_tasks);
 				setAllUsers(res.data);
 				setProjectData(res.data.projects);
 				// setLoading(false);
@@ -214,7 +220,8 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 							<TopStatistics text={'Tasks Today'} count={topStatisticsCount.tasksToday} />
 							<TopStatistics text={'Team Load'} count={totalTickets} />
 							<TopStatistics text={'Completions'} count={completedTask} />
-							<TopStatistics text={'Sleepings'} count={data?.sleeping_task} />
+
+							<TopStatistics isLink='true' text={'Sleeping'} count={sleepingTask} />
 						</div>
 					</div>
 					{/* ======================= Yogesh Start ========================== */}
@@ -341,6 +348,20 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 					{/* ======================= Yogesh ends ========================== */}
 				</div>
 			</div>
+			<TeamTabTop>
+				<table style={{ width: '100%' }}>
+					<tr align='center'>
+						<th align='center'>Slowdowns</th>
+						<th align='center'>Absents</th>
+						<th align='center'>Ideals</th>
+					</tr>
+					<tr style={{ alignItems: 'center', margin: 'auto' }}>
+						<td align='center'>{3}</td>
+						<td>{2}</td>
+						<td>{1}</td>
+					</tr>
+				</table>
+			</TeamTabTop>
 			<div className='big-dashboard-footer' style={{ margin: '1rem' }}>
 				<Link to='/homepage' onClick={scrollTop}>
 					Go to Homepage
