@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress, faExpand } from '@fortawesome/free-solid-svg-icons';
 import { CSSTransition } from 'react-transition-group';
 import { TeamTabTop } from '.././TeamWork/Style';
+import StatusCounts from './StatusCounts';
 
 const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	/* ======================= Yogesh start ========================== */
@@ -25,6 +26,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 		setIsProjectMaximized(column === 'project' ? !isProjectMaximized : false);
 		setIsTeamWorkMaximized(column === 'teamWork' ? !isTeamWorkMaximized : false);
 	};
+
 	/* ======================= Yogesh end ========================== */
 	useEffect(() => {
 		getTeamWorkData();
@@ -39,7 +41,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	const localStorageData = localStorage.getItem('redwing_data');
 
 	const [allusers, setAllUsers] = useState(
-		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : {}
+		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : null // Initialize to null initially
 	);
 
 	const [data, setData] = useState(
@@ -143,6 +145,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 			};
 		});
 	}, [timer]);
+
 	return (
 		<>
 			{/* ======================= Yogesh Start ========================== */}
@@ -348,20 +351,10 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 					{/* ======================= Yogesh ends ========================== */}
 				</div>
 			</div>
-			<TeamTabTop>
-				<table style={{ width: '100%' }}>
-					<tr align='center'>
-						<th align='center'>Slowdowns</th>
-						<th align='center'>Absents</th>
-						<th align='center'>Ideals</th>
-					</tr>
-					<tr style={{ alignItems: 'center', margin: 'auto' }}>
-						<td align='center'>{3}</td>
-						<td>{2}</td>
-						<td>{1}</td>
-					</tr>
-				</table>
-			</TeamTabTop>
+			{/* Add the StatusCounts component to display counts with colors */}
+			<StatusCounts
+				allusers={allusers} // Pass the allusers prop
+			/>
 			<div className='big-dashboard-footer' style={{ margin: '1rem' }}>
 				<Link to='/homepage' onClick={scrollTop}>
 					Go to Homepage
