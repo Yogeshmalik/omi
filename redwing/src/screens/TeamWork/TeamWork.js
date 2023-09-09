@@ -79,6 +79,79 @@ const TeamWork = ({
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [deleteMember, setDeleteMember] = useState({ img: '', name: '', user_id: '' });
 	/* YSM start */
+	const [dynamicUsers, setDynamicUsers] = useState([]);
+	const dynamicUserData = {
+		absents: [],
+		idles: [],
+		slowdowns: []
+	};
+
+	// Calculate the counts of dynamic users for each color category
+	const dynamicUserCounts = {
+		red: users.filter(user => user.color === 'red'),
+		yellow: users.filter(user => user.color === 'yellow'),
+		'#13b497': users.filter(user => user.color === '#13b497')
+	};
+
+	const moreUsers = [
+		{
+			name: 'Person A',
+			color: 'yellow',
+			ticks: 1,
+			imgSrc:
+				'https://img.freepik.com/free-vector/hand-drawn-flat-design-anarchy-symbol_23-2149244365.jpg?size=626&ext=jpg&ga=GA1.2.2011121742.1687571399&semt=sph'
+		},
+		{
+			name: 'Person B',
+			color: 'yellow',
+			ticks: 2,
+			imgSrc:
+				'https://img.freepik.com/free-vector/b-letter-initial-colorful-gradient-design_474888-2659.jpg?w=740&t=st=1694257521~exp=1694258121~hmac=d8c346b26f4730ccd346ee6a8894c9aa52afe0ffd7caaffd9641c93cf00df063'
+		},
+		{
+			name: 'Person C',
+			color: 'yellow',
+			ticks: 3,
+			imgSrc:
+				'https://img.freepik.com/free-vector/branding-identity-corporate-c-logo-vector-design-template_460848-13936.jpg?w=740&t=st=1694257564~exp=1694258164~hmac=689cfbc0079e014c8b1e55d745215a6add79541ee8b66bbcad12a1d3384aeecd'
+		},
+		{
+			name: 'Person D',
+			color: 'red',
+			ticks: 0,
+			imgSrc:
+				'https://img.freepik.com/free-vector/letter-d-gradient-icon-logo-design_474888-2589.jpg?w=740&t=st=1694257589~exp=1694258189~hmac=57dec11314bbb4596ee17b62f9efee101afae91ea6dbb670878ded3bf8bbbe82'
+		},
+		{
+			name: 'Person E',
+			color: 'red',
+			ticks: 0,
+			imgSrc:
+				'https://img.freepik.com/free-vector/e-letter_53876-60349.jpg?w=740&t=st=1694257619~exp=1694258219~hmac=59f5cdb49f66b728ab0896681dab0e6638bd6c9204ae6c159a41dd627b3ed911'
+		},
+		{
+			name: 'Person F',
+			color: '#13b497',
+			ticks: 0,
+			imgSrc:
+				'https://img.freepik.com/free-vector/f-letter_53876-60350.jpg?w=740&t=st=1694257672~exp=1694258272~hmac=09d2adc56ac7b03d286fd4c2d6edac731112dc3cbe0ad8dba9dfcc12328b98b7'
+		},
+		{
+			name: 'Person Y',
+			color: '#13b497',
+			ticks: 0,
+			imgSrc:
+				'https://media.licdn.com/dms/image/D4D03AQEmyCzQvDIMcQ/profile-displayphoto-shrink_200_200/0/1689586034828?e=1699488000&v=beta&t=swEAtkv40CKM_aywCKeA-zBuUEyCJ2vHcM5cSJabLy8'
+		}
+	];
+
+	// Calculate the counts of users for each color category
+	const userCounts = {
+		red: moreUsers.filter(moreUser => moreUser.color === 'red'),
+		yellow: moreUsers.filter(moreUser => moreUser.color === 'yellow'),
+		'#13b497': moreUsers.filter(moreUser => moreUser.color === '#13b497')
+	};
+
 	const handleSorting = col => {
 		if (sortingColumn === col) {
 			// Reverse the sorting order if the same column is clicked
@@ -223,7 +296,33 @@ const TeamWork = ({
 			setUsers(users);
 			setSortingOrder('DEC');
 			setSortingColumn('tasks_count');
+			const filteredUsers = data.users.filter(user => user.user_id !== 33629907);
+			const absents = filteredUsers.filter(user => user.active_todo_count === 0);
+			const idles = filteredUsers.filter(
+				user => user.active_todo_count > 0 && user.tasks_count === 0
+			);
+			const slowdowns = filteredUsers.filter(
+				user => user.active_todo_count > 0 && user.tasks_count > 0
+			);
+
+			dynamicUserData.absents = absents;
+			dynamicUserData.idles = idles;
+			dynamicUserData.slowdowns = slowdowns;
+			setDynamicUsers(filteredUsers);
 		}
+		console.log(`Number of Absents: ${dynamicUserData.absents.length}`);
+		console.log(
+			`Number of Idles: ${dynamicUserData.idles.length}, Names of Idles: ${dynamicUserData.idles
+				.map(user => user.name)
+				.join(', ')}`
+		);
+		console.log(
+			`Number of Slow: ${
+				dynamicUserData.slowdowns.length
+			}, Names of Slowdowns: ${dynamicUserData.slowdowns.map(user => user.name).join(', ')}`
+		);
+
+		console.log(`Number of Slowdowns: ${dynamicUserData.slowdowns.length}`);
 	}, [data]);
 
 	useEffect(() => {
@@ -554,50 +653,87 @@ const TeamWork = ({
 																getTeamWorkData={getTeamWorkData}
 																setLoading={setLoading}
 															/>
+															{/* <h1>Hello</h1> */}
 														</>
 													);
 											  })
 											: ''}
-										<MoreUsers
-											name='Person A'
-											color='yellow'
-											ticks={1}
-											imgSrc='https://img.freepik.com/free-vector/hand-drawn-flat-design-anarchy-symbol_23-2149244365.jpg?size=626&ext=jpg&ga=GA1.2.2011121742.1687571399&semt=sph'
-										/>
-										<MoreUsers
-											name='Person B'
-											color='yellow'
-											ticks={2}
-											imgSrc='https://img.freepik.com/free-vector/b-letter-initial-colorful-gradient-design_474888-2659.jpg?w=740&t=st=1694257521~exp=1694258121~hmac=d8c346b26f4730ccd346ee6a8894c9aa52afe0ffd7caaffd9641c93cf00df063'
-										/>
-										<MoreUsers
-											name='Person C'
-											color='yellow'
-											ticks={3}
-											imgSrc='https://img.freepik.com/free-vector/branding-identity-corporate-c-logo-vector-design-template_460848-13936.jpg?w=740&t=st=1694257564~exp=1694258164~hmac=689cfbc0079e014c8b1e55d745215a6add79541ee8b66bbcad12a1d3384aeecd'
-										/>
-										<MoreUsers
-											name='Person D'
-											color='red'
-											imgSrc='https://img.freepik.com/free-vector/letter-d-gradient-icon-logo-design_474888-2589.jpg?w=740&t=st=1694257589~exp=1694258189~hmac=57dec11314bbb4596ee17b62f9efee101afae91ea6dbb670878ded3bf8bbbe82'
-										/>
-										<MoreUsers
-											name='Person E'
-											color='red'
-											imgSrc='https://img.freepik.com/free-vector/e-letter_53876-60349.jpg?w=740&t=st=1694257619~exp=1694258219~hmac=59f5cdb49f66b728ab0896681dab0e6638bd6c9204ae6c159a41dd627b3ed911'
-										/>
-										<MoreUsers
-											name='Person F'
-											color='#13b497'
-											imgSrc='https://img.freepik.com/free-vector/f-letter_53876-60350.jpg?w=740&t=st=1694257672~exp=1694258272~hmac=09d2adc56ac7b03d286fd4c2d6edac731112dc3cbe0ad8dba9dfcc12328b98b7'
-										/>
-										<MoreUsers
-											name='Person Y'
-											color='#13b497'
-											imgSrc='https://media.licdn.com/dms/image/D4D03AQEmyCzQvDIMcQ/profile-displayphoto-shrink_200_200/0/1689586034828?e=1699488000&v=beta&t=swEAtkv40CKM_aywCKeA-zBuUEyCJ2vHcM5cSJabLy8'
-										/>
+										{moreUsers.map(moreUser => (
+											<MoreUsers
+												key={moreUser.name}
+												name={moreUser.name}
+												color={moreUser.color}
+												ticks={moreUser.ticks}
+												imgSrc={moreUser.imgSrc}
+											/>
+										))}
 									</tbody>
 								</table>
+<div>
+    <h2>Dynamic Users</h2>
+
+    {dynamicUserData.absents.length > 0 && (
+      <div>
+        <p>Number of Absents: {dynamicUserData.absents.length}</p>
+        <ul>
+          {dynamicUserData.absents.map(user => (
+            <li key={user.user_id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {dynamicUserData.idles.length > 0 && (
+      <div>
+        <p>Number of Idles: {dynamicUserData.idles.length}</p>
+        <ul>
+          {dynamicUserData.idles.map(user => (
+            <li key={user.user_id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {dynamicUserData.slowdowns.length > 0 && (
+      <div>
+        <p>Number of Slowdowns: {dynamicUserData.slowdowns.length}</p>
+        <ul>
+          {dynamicUserData.slowdowns.map(user => (
+            <li key={user.user_id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    )
+}
+{console.log("YSM Name", dynamicUserData.slowdowns.map(user => (
+            <li key={user.user_id}>{user.name}</li>
+          )))}
+  </div>
+
+								{/* Display the counts and names of absent users for each color category */}
+								{Object.keys(userCounts).map(color => (
+									<div key={color}>
+										{userCounts[color].length > 0 && (
+											<p
+												style={{
+													color: color,
+													width: '100%',
+													fontSize: 'large',
+													marginBottom: '5px'
+												}}
+											>
+												{userCounts[color].length}{' '}
+												{color === 'red' ? 'Absents' : color === 'yellow' ? 'Slowdowns' : 'Idles'}:{' '}
+												{userCounts[color].map((user, index) => (
+													<span key={user.name} style={{ color: 'white', width: '100%' }}>
+														{user.name}
+														{index < userCounts[color].length - 1 ? ', ' : ''}
+													</span>
+												))}
+											</p>
+										)}
+									</div>
+								))}
 								{showActionButtons && (
 									<MdContainer maxWidth='md'>
 										{token && token !== 'undefined' && new Date(token_expiry_date) > new Date() && (
