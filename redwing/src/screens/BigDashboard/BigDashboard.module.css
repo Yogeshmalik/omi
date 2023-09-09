@@ -19,7 +19,7 @@
 	overflow-y: hidden;
 }
 /* ======================== YSM start ========================== */
-.smalldashboard{
+.smalldashboard {
 	min-height: 100%;
 	display: grid;
 	font-family: Poppins;
@@ -31,7 +31,6 @@
 }
 
 /* ======================== YSM end ========================== */
-
 
 .activity {
 	grid-area: a;
@@ -296,3 +295,4 @@ button:hover {
 	overflow: hidden;
 	/* display: none; */
 }
+

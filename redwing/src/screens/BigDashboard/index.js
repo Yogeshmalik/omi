@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TeamWork from 'screens/TeamWork/TeamWork';
+// import TeamWork from 'screens/TeamWork/TeamW';
 import styles from './BigDashboard.module.css';
 import { TopStatistics } from './TopStatistics';
 import ProjectsColumn from './ProjectsColumn';
@@ -253,6 +254,13 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 								showTabComponent={false}
 								showActionButtons={false}
 							/>
+							{/* <TeamWork
+								isInverted={false}
+								screenIndex={2}
+								showTeamTabTop={false}
+								showTabComponent={false}
+								showActionButtons={false}
+							/> */}
 						</div>
 						{/* ======================= Yogesh Start ========================== */}
 					</CSSTransition>
@@ -351,11 +359,11 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 					{/* ======================= Yogesh ends ========================== */}
 				</div>
 			</div>
-			{/* Add the StatusCounts component to display counts with colors */}
-			<StatusCounts
-				allusers={allusers} // Pass the allusers prop
-			/>
 			<div className='big-dashboard-footer' style={{ margin: '1rem' }}>
+				{/* Add the StatusCounts component to display counts with colors */}
+				{/* <StatusCounts
+					allusers={allusers} // Pass the allusers prop
+				/> */}
 				<Link to='/homepage' onClick={scrollTop}>
 					Go to Homepage
 				</Link>

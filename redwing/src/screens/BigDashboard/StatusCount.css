@@ -1,0 +1,38 @@
+/* =========== For StatusCounts.js ============ */
+/* Add hover styles to display names on hover */
+.slowdowns-box {
+	background-color: #ecaf02;
+}
+.slowdowns-box:hover {
+	background-color: #b88804;
+}
+
+.absents-box {
+	background-color: #cc0000; /* Background color for names */
+}
+.absents-box:hover {
+	background-color: #760202; /* Background color for names */
+}
+
+.status-count .idlesBox {
+	background-color: #13b497;
+}
+.status-count .idlesBox:hover {
+	background-color: #0b7c67;
+}
+
+.slowdowns-box,
+.absents-box,
+.idlesBox:hover {
+	cursor: pointer;
+}
+
+.hover-names {
+	background-color: rgba(255, 255, 255, 0.9); /* Background color for names */
+	padding: 5px;
+	border: 1px solid #000; /* Border for names */
+	border-radius: 10px;
+	margin-top: 0.5rem; /* Adjust as needed */
+	display: block;
+	z-index: 1;
+}

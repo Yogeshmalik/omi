@@ -29,6 +29,7 @@ import TabComponent from 'components/TabComponent/TabComponent';
 import moment from 'moment';
 import useLongPress from '../../hooks/useLongPress';
 import { alertClasses } from '@mui/material';
+import MoreUsers from './MoreUsers';
 
 const token = localStorage.getItem('red_wing_token');
 const token_expiry_date = localStorage.getItem('red_wing_token_expiry_date');
@@ -132,9 +133,7 @@ const TeamWork = ({
 
 				setSortingOrder('ASC');
 			}
-		}
-		
-		else if (col === 'project_ids') {
+		} else if (col === 'project_ids') {
 			if (sortingOrder1 === 'ASC') {
 				const sorted = [...users].sort((a, b) => (a[col].length < b[col].length ? 1 : -1));
 
@@ -538,25 +537,65 @@ const TeamWork = ({
 										{users
 											? users.map((user, key) => {
 													return (
-														<TableRow
-															key={key}
-															img={user.avatar}
-															user_id={user.user_id}
-															tasks={user.tasks_count}
-															name={user.name}
-															active={user.active_count}
-															active_todo={user.active_todo_count}
-															projects={user.project_ids}
-															completed_todo={user.completed_todo}
-															last_active_at={user.last_active_at}
-															projectsdata={projects}
-															data={data.users}
-															getTeamWorkData={getTeamWorkData}
-															setLoading={setLoading}
-														/>
+														<>
+															<TableRow
+																key={key}
+																img={user.avatar}
+																user_id={user.user_id}
+																tasks={user.tasks_count}
+																name={user.name}
+																active={user.active_count}
+																active_todo={user.active_todo_count}
+																projects={user.project_ids}
+																completed_todo={user.completed_todo}
+																last_active_at={user.last_active_at}
+																projectsdata={projects}
+																data={data.users}
+																getTeamWorkData={getTeamWorkData}
+																setLoading={setLoading}
+															/>
+														</>
 													);
 											  })
 											: ''}
+										<MoreUsers
+											name='Person A'
+											color='yellow'
+											ticks={1}
+											imgSrc='https://img.freepik.com/free-vector/hand-drawn-flat-design-anarchy-symbol_23-2149244365.jpg?size=626&ext=jpg&ga=GA1.2.2011121742.1687571399&semt=sph'
+										/>
+										<MoreUsers
+											name='Person B'
+											color='yellow'
+											ticks={2}
+											imgSrc='https://img.freepik.com/free-vector/b-letter-initial-colorful-gradient-design_474888-2659.jpg?w=740&t=st=1694257521~exp=1694258121~hmac=d8c346b26f4730ccd346ee6a8894c9aa52afe0ffd7caaffd9641c93cf00df063'
+										/>
+										<MoreUsers
+											name='Person C'
+											color='yellow'
+											ticks={3}
+											imgSrc='https://img.freepik.com/free-vector/branding-identity-corporate-c-logo-vector-design-template_460848-13936.jpg?w=740&t=st=1694257564~exp=1694258164~hmac=689cfbc0079e014c8b1e55d745215a6add79541ee8b66bbcad12a1d3384aeecd'
+										/>
+										<MoreUsers
+											name='Person D'
+											color='red'
+											imgSrc='https://img.freepik.com/free-vector/letter-d-gradient-icon-logo-design_474888-2589.jpg?w=740&t=st=1694257589~exp=1694258189~hmac=57dec11314bbb4596ee17b62f9efee101afae91ea6dbb670878ded3bf8bbbe82'
+										/>
+										<MoreUsers
+											name='Person E'
+											color='red'
+											imgSrc='https://img.freepik.com/free-vector/e-letter_53876-60349.jpg?w=740&t=st=1694257619~exp=1694258219~hmac=59f5cdb49f66b728ab0896681dab0e6638bd6c9204ae6c159a41dd627b3ed911'
+										/>
+										<MoreUsers
+											name='Person F'
+											color='#13b497'
+											imgSrc='https://img.freepik.com/free-vector/f-letter_53876-60350.jpg?w=740&t=st=1694257672~exp=1694258272~hmac=09d2adc56ac7b03d286fd4c2d6edac731112dc3cbe0ad8dba9dfcc12328b98b7'
+										/>
+										<MoreUsers
+											name='Person Y'
+											color='#13b497'
+											imgSrc='https://media.licdn.com/dms/image/D4D03AQEmyCzQvDIMcQ/profile-displayphoto-shrink_200_200/0/1689586034828?e=1699488000&v=beta&t=swEAtkv40CKM_aywCKeA-zBuUEyCJ2vHcM5cSJabLy8'
+										/>
 									</tbody>
 								</table>
 								{showActionButtons && (
