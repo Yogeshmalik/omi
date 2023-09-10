@@ -1075,6 +1075,26 @@ const TableRow = props => {
 			: props.active_todo_count > 0 && props.tasks_count === 0
 			? '#13b497' // Idle users are in #13b497 (greenish color)
 			: 'white'; // Default color (if none of the conditions match)
+
+	const setUserColor = React.useMemo(() => {
+		// debugger
+		const current = props.data.find(user => user.name == props.name);
+		if (props.name === 'Kajal Patel') {
+			return 'white';
+		} else if (
+			moment().diff(moment(current.last_active_at), 'hours') >= 3 ||
+			current.active_todo_count === 0
+		) {
+			return 'red';
+		} else if (current.active_todo_count > 0 && current.tasks_count > 0) {
+			return 'yellow';
+		} else if (current.active_todo_count > 0 && current.tasks_count === 0) {
+			return '#13b497';
+		} else {
+			return 'white';
+		}
+	}, [props.name]);
+	console.log('Golu', setUserColor);
 	/* ************************** YSM S ****************** */
 
 	console.log(parseInt(props.active?.split('(')[0]) - props.completed_todo);
@@ -1101,7 +1121,7 @@ const TableRow = props => {
 								// 		: moment().diff(moment(props.last_active_at), 'hours') >= 3
 								// 		? '#EDFC45'
 								// 		: 'white' || userNameColor,
-								color: userNameColor,
+								color: setUserColor || 'red',
 								paddingLeft: '2rem',
 								fontSize: '14px'
 							}}
