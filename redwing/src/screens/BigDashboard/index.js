@@ -152,6 +152,20 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 		});
 	}, [timer]);
 
+	const getMaxClass = () => {
+		if (isActivityMaximized) {
+			return styles.maximized;
+		} else if (!isActivityMax) {
+			return styles.max;
+		} else {
+			return styles.maximized;
+		}
+	};
+	// };
+	// `${styles.activity} ${
+	// 	!isActivityMaximized ? styles.maximized : !isActivityMax ? styles.max : styles.maximized
+	// }`;
+
 	return (
 		<>
 			{/* ======================= Yogesh Start ========================== */}
@@ -170,8 +184,8 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 					)}
 				</button>
 				{topStatisticsCount.hoursOfWeek !== 0 && (
-					<button onClick={() => toggleMaximize('activity')}>
-						{isActivityMaximized ? (
+					<button onClick={() => toggleMax('activity')}>
+						{!isActivityMax ? (
 							<>
 								<FontAwesomeIcon icon={faCompress} className={styles.icon} />
 								{' Activity'}
@@ -259,13 +273,6 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 								showTabComponent={false}
 								showActionButtons={false}
 							/>
-							{/* <TeamWork
-								isInverted={false}
-								screenIndex={2}
-								showTeamTabTop={false}
-								showTabComponent={false}
-								showActionButtons={false}
-							/> */}
 						</div>
 						{/* ======================= Yogesh Start ========================== */}
 					</CSSTransition>
@@ -274,14 +281,19 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 				{/* <div className={styles.activity}> */}
 				{topStatisticsCount.hoursOfWeek !== 0 && (
 					// <div className={`${styles.activity} ${isActivityMaximized ? styles.maximized : ''}`}>
+					// <div className={`${styles.activity} ${getMaxClass}`}>
 					<div
-						className={`${styles.activity} ${!isActivityMaximized ? styles.maximized : !isActivityMax ? styles.max : styles.maximized}`}
+						className={`${styles.activity} ${
+							 isActivityMax
+								? styles.max
+								: styles.maximized
+						}`}
 					>
 						<div className={styles.outertopStatisticsBar}>
 							<div className={styles.topStatisticsBar}>
 								{/* ======================= Yogesh Start ========================== */}
-								<button onClick={() => toggleMax('activity')}>
-									{isActivityMax  ? (
+								<button onClick={() => toggleMaximize('activity')}>
+									{isActivityMax ? (
 										<FontAwesomeIcon icon={faCompress} className={styles.icon} />
 									) : (
 										<FontAwesomeIcon icon={faExpand} className={styles.icon} />
@@ -295,6 +307,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 						{/* ======================= Yogesh Start ========================== */}
 						<CSSTransition
 							in={isActivityMaximized}
+							out={isActivityMax}
 							timeout={300}
 							classNames={{
 								enter: styles['column-maximize-enter'],
@@ -307,11 +320,12 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 							{/* <div
 								className={`${styles.alignActivitiesContent} ${isActivityMaximized ? styles.maximized : styles.initial}`}
 							> */}
-							<div
+							{/* <div
 								className={`${styles.alignActivitiesContent} ${
 									!isActivityMaximized ? styles.max : styles.maximized
 								}`}
-							>
+							> */}
+								<div className={styles.alignActivitiesContent}>
 								{/* ======================= Yogesh Ends ========================== */}
 								{/* <div className={styles.alignActivitiesContent}> */}
 								<ActivitiesColumn
@@ -356,11 +370,12 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 						}}
 						unmountOnExit
 					>
-						<div
+						{/* <div
 							className={`${styles.alignProjectsContent} ${
 								isProjectMaximized ? styles.maximized : ''
 							}`}
-						>
+							> */}
+							<div className={styles.alignProjectsContent}>
 							{/* ======================= Yogesh Ends ========================== */}
 							{/* <div className={styles.alignProjectsContent}> */}
 							<ProjectsColumn setTopStatisticsCount={setTopStatisticsCount} />

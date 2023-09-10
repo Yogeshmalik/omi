@@ -287,14 +287,11 @@ button:hover {
 }
 .max {
 	width: 100%;
-	grid-area: a;
-	background: linear-gradient(175.2deg, #063437 0%, rgba(0, 0, 0, 0) 101.53%);
-	width: 100%;
-	display: grid;
-	grid-template-rows: auto 1fr;
-	/* overflow: hidden; */
 }
 
+.min{
+	display: none;
+}
 /* .activity {
 	grid-area: a;
 	background: linear-gradient(175.2deg, #063437 0%, rgba(0, 0, 0, 0) 101.53%);

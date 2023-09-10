@@ -718,33 +718,35 @@ const TeamWork = ({
 										</tr>
 									</thead>
 									<tbody>
-										{showSegmenting(users)?.map((tab, key) =>
-										<>
-										
-											{tab.map((user, ind) => {
-												return (
-													<>
-														<TableRow
-															key={key}
-															img={user.avatar}
-															user_id={user.user_id}
-															tasks={user.tasks_count}
-															name={user.name}
-															active={user.active_count}
-															active_todo={user.active_todo_count}
-															projects={user.project_ids}
-															completed_todo={user.completed_todo}
-															last_active_at={user.last_active_at}
-															projectsdata={projects}
-															data={data.users}
-															getTeamWorkData={getTeamWorkData}
-															setLoading={setLoading}
-														/>
-													</>
-												);
-											})}
+										{console.log('userssss', users)}
+										{showSegmenting(users)?.map((tab, key) => (
+											<>
+												<h2>Table: {key + 1}</h2>
+
+												{tab.map((user, ind) => {
+													return (
+														<>
+															<TableRow
+																key={key}
+																img={user.avatar}
+																user_id={user.user_id}
+																tasks={user.tasks_count}
+																name={user.name}
+																active={user.active_count}
+																active_todo={user.active_todo_count}
+																projects={user.project_ids}
+																completed_todo={user.completed_todo}
+																last_active_at={user.last_active_at}
+																projectsdata={projects}
+																data={data.users}
+																getTeamWorkData={getTeamWorkData}
+																setLoading={setLoading}
+															/>
+														</>
+													);
+												})}
 											</>
-										)}
+										))}
 										{users
 											? // users.map((user, key) => {
 											  // 		return (
