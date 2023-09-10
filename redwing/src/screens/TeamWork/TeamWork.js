@@ -79,19 +79,20 @@ const TeamWork = ({
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [deleteMember, setDeleteMember] = useState({ img: '', name: '', user_id: '' });
 	/* YSM start */
+	const [userData, setUserData] = useState(null); // Initialize state for user data
+	const [loadings, setLoadings] = useState(true); // Add loading state if needed
+
 	const [dynamicUsers, setDynamicUsers] = useState([]);
 	const dynamicUserData = {
 		absents: [],
 		idles: [],
 		slowdowns: []
 	};
-
-	// Calculate the counts of dynamic users for each color category
-	const dynamicUserCounts = {
-		red: users.filter(user => user.color === 'red'),
-		yellow: users.filter(user => user.color === 'yellow'),
-		'#13b497': users.filter(user => user.color === '#13b497')
-	};
+	const [dynamicUserDatas, setDynamicUserDatas] = useState({
+		absents: [],
+		idles: [],
+		slowdowns: []
+	});
 
 	const moreUsers = [
 		{
@@ -310,19 +311,19 @@ const TeamWork = ({
 			dynamicUserData.slowdowns = slowdowns;
 			setDynamicUsers(filteredUsers);
 		}
-		console.log(`Number of Absents: ${dynamicUserData.absents.length}`);
-		console.log(
-			`Number of Idles: ${dynamicUserData.idles.length}, Names of Idles: ${dynamicUserData.idles
-				.map(user => user.name)
-				.join(', ')}`
-		);
-		console.log(
-			`Number of Slow: ${
-				dynamicUserData.slowdowns.length
-			}, Names of Slowdowns: ${dynamicUserData.slowdowns.map(user => user.name).join(', ')}`
-		);
+		// console.log(`Number of Absents: ${dynamicUserData.absents.length}`);
+		// console.log(
+		// 	`Number of Idles: ${dynamicUserData.idles.length}, Names of Idles: ${dynamicUserData.idles
+		// 		.map(user => user.name)
+		// 		.join(', ')}`
+		// );
+		// console.log(
+		// 	`Number of Slow: ${
+		// 		dynamicUserData.slowdowns.length
+		// 	}, Names of Slowdowns: ${dynamicUserData.slowdowns.map(user => user.name).join(', ')}`
+		// );
 
-		console.log(`Number of Slowdowns: ${dynamicUserData.slowdowns.length}`);
+		// console.log(`Number of Slowdowns: ${dynamicUserData.slowdowns.length}`);
 	}, [data]);
 
 	useEffect(() => {
@@ -415,6 +416,45 @@ const TeamWork = ({
 	const handleCloseDeleteModal = () => {
 		setOpenDeleteModal(false);
 	};
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get(`${process.env.REACT_APP_API_URL}/pages/team_work.php`, {
+					headers: {
+						// Authorization: `Bearer ${token}`,
+						'Access-Control-Allow-Origin': '*'
+					}
+				});
+				const data = response.data;
+
+				const filteredUsers = data.users.filter(user => user.user_id !== 33629907);
+				// Filter out the user named "Kajal" from slowdowns and absents
+				const absents = filteredUsers.filter(
+					user => user.active_todo_count === 0 && user.name !== 'Kajal Patel'
+				);
+				const idles = filteredUsers.filter(
+					user => user.active_todo_count > 0 && user.tasks_count === 0
+				);
+				const slowdowns = filteredUsers.filter(
+					user => user.active_todo_count > 0 && user.tasks_count > 0 && user.name !== 'Kajal Patel'
+				);
+
+				setDynamicUserDatas({
+					absents,
+					idles,
+					slowdowns
+				});
+
+				setLoadings(false);
+			} catch (error) {
+				console.error(error);
+				setLoadings(false);
+			}
+		};
+
+		fetchData();
+	}, []);
 
 	return (
 		<>
@@ -669,46 +709,76 @@ const TeamWork = ({
 										))}
 									</tbody>
 								</table>
-<div>
-    <h2>Dynamic Users</h2>
-
-    {dynamicUserData.absents.length > 0 && (
-      <div>
-        <p>Number of Absents: {dynamicUserData.absents.length}</p>
-        <ul>
-          {dynamicUserData.absents.map(user => (
-            <li key={user.user_id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-    )}
-
-    {dynamicUserData.idles.length > 0 && (
-      <div>
-        <p>Number of Idles: {dynamicUserData.idles.length}</p>
-        <ul>
-          {dynamicUserData.idles.map(user => (
-            <li key={user.user_id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-    )}
-
-    {dynamicUserData.slowdowns.length > 0 && (
-      <div>
-        <p>Number of Slowdowns: {dynamicUserData.slowdowns.length}</p>
-        <ul>
-          {dynamicUserData.slowdowns.map(user => (
-            <li key={user.user_id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-    )
-}
-{console.log("YSM Name", dynamicUserData.slowdowns.map(user => (
-            <li key={user.user_id}>{user.name}</li>
-          )))}
-  </div>
+								{/* *************************** YSM S ******************************* */}
+								<div>
+									<div>
+										<p
+											style={{
+												color: 'red',
+												fontSize: 'large',
+												fontSize: 'large',
+												marginBottom: '10px'
+											}}
+										>
+											{dynamicUserDatas.absents.length} Absents:{' '}
+											{dynamicUserDatas.absents.length > 0 && (
+												<span style={{ color: 'white', fontSize: 'small' }}>
+													{dynamicUserDatas.absents.map((user, index) => (
+														<span key={user.user_id}>
+															{user.name}
+															{index < dynamicUserDatas.absents.length - 1 ? ', ' : ''}
+														</span>
+													))}
+												</span>
+											)}
+										</p>
+									</div>
+									<div>
+										<p
+											style={{
+												color: 'yellow',
+												fontSize: 'large',
+												fontSize: 'large',
+												marginBottom: '10px'
+											}}
+										>
+											{dynamicUserDatas.slowdowns.length} Slowdowns:{' '}
+											{dynamicUserDatas.slowdowns.length > 0 && (
+												<span style={{ color: 'white', fontSize: 'small' }}>
+													{dynamicUserDatas.slowdowns.map((user, index) => (
+														<span key={user.user_id}>
+															{user.name}
+															{index < dynamicUserDatas.slowdowns.length - 1 ? ', ' : ''}
+														</span>
+													))}
+												</span>
+											)}
+										</p>
+									</div>
+									<div>
+										<p
+											style={{
+												color: '#13b497',
+												fontSize: 'large',
+												fontSize: 'large',
+												marginBottom: '10px'
+											}}
+										>
+											{dynamicUserDatas.idles.length} Idles:{' '}
+											{dynamicUserDatas.idles.length > 0 && (
+												<span style={{ color: 'white', fontSize: 'small' }}>
+													{dynamicUserDatas.idles.map((user, index) => (
+														<span key={user.user_id}>
+															{user.name}
+															{index < dynamicUserDatas.idles.length - 1 ? ', ' : ''}
+														</span>
+													))}
+												</span>
+											)}
+										</p>
+									</div>
+								</div>
+								{/* *************************** YSM E ******************************* */}
 
 								{/* Display the counts and names of absent users for each color category */}
 								{Object.keys(userCounts).map(color => (
@@ -993,6 +1063,20 @@ const TableRow = props => {
 		delay: 500
 	};
 	const longPressAvatarEvent = useLongPress(onAvatarLongPress, onAvatarClick, defaultOptions);
+
+	/* ************************** YSM S ****************** */
+	const userNameColor =
+		props.name === 'Kajal Patel'
+			? 'white'
+			: moment().diff(moment(props.last_active_at), 'hours') >= 3 || props.active_todo_count === 0
+			? 'red' // Absent users are in red
+			: props.active_todo_count > 0 && props.tasks_count > 0
+			? 'yellow' // Slowdown users are in yellow
+			: props.active_todo_count > 0 && props.tasks_count === 0
+			? '#13b497' // Idle users are in #13b497 (greenish color)
+			: 'white'; // Default color (if none of the conditions match)
+	/* ************************** YSM S ****************** */
+
 	console.log(parseInt(props.active?.split('(')[0]) - props.completed_todo);
 	console.log(props.active);
 	return (
@@ -1011,12 +1095,13 @@ const TableRow = props => {
 						<a
 							href={`https://3.basecamp.com/4954106/reports/users/progress/${props.user_id}`}
 							style={{
-								color:
-									props.active_todo === 0
-										? 'red'
-										: moment().diff(moment(props.last_active_at), 'hours') >= 3
-										? '#EDFC45'
-										: 'white',
+								// color:
+								// 	props.active_todo === 0
+								// 		? 'red'
+								// 		: moment().diff(moment(props.last_active_at), 'hours') >= 3
+								// 		? '#EDFC45'
+								// 		: 'white' || userNameColor,
+								color: userNameColor,
 								paddingLeft: '2rem',
 								fontSize: '14px'
 							}}

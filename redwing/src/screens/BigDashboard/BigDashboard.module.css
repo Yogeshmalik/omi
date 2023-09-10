@@ -285,14 +285,22 @@ button:hover {
 .maximized {
 	width: 100vw;
 }
-
-.activity {
+.max {
+	width: 100%;
 	grid-area: a;
 	background: linear-gradient(175.2deg, #063437 0%, rgba(0, 0, 0, 0) 101.53%);
-	width: 100%; /* Added to take full width when maximized */
-	display: grid; /* Added for proper sizing */
-	grid-template-rows: auto 1fr; /* Added for proper sizing */
-	overflow: hidden;
-	/* display: none; */
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	/* overflow: hidden; */
 }
+
+/* .activity {
+	grid-area: a;
+	background: linear-gradient(175.2deg, #063437 0%, rgba(0, 0, 0, 0) 101.53%);
+	width: 100%;
+	display: grid; 
+	grid-template-rows: auto 1fr; 
+	overflow: hidden;
+} */
 

@@ -18,14 +18,19 @@ import StatusCounts from './StatusCounts';
 const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	/* ======================= Yogesh start ========================== */
 	// State variables for column maximization
-	const [isActivityMaximized, setIsActivityMaximized] = useState(false);
+	const [isActivityMaximized, setIsActivityMaximized] = useState(true);
 	const [isProjectMaximized, setIsProjectMaximized] = useState(false);
-	const [isTeamWorkMaximized, setIsTeamWorkMaximized] = useState(true);
+	const [isTeamWorkMaximized, setIsTeamWorkMaximized] = useState(false);
 
+	const [isActivityMax, setIsActivityMax] = useState(true);
 	const toggleMaximize = column => {
 		setIsActivityMaximized(column === 'activity' ? !isActivityMaximized : false);
 		setIsProjectMaximized(column === 'project' ? !isProjectMaximized : false);
 		setIsTeamWorkMaximized(column === 'teamWork' ? !isTeamWorkMaximized : false);
+		// setIsActivityMax(column === 'activity' ? !isActivityMax : true)
+	};
+	const toggleMax = columns => {
+		setIsActivityMax(columns === 'activity' ? !isActivityMax : false);
 	};
 
 	/* ======================= Yogesh end ========================== */
@@ -268,12 +273,15 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 				</div>
 				{/* <div className={styles.activity}> */}
 				{topStatisticsCount.hoursOfWeek !== 0 && (
-					<div className={`${styles.activity} ${isActivityMaximized ? styles.maximized : ''}`}>
+					// <div className={`${styles.activity} ${isActivityMaximized ? styles.maximized : ''}`}>
+					<div
+						className={`${styles.activity} ${!isActivityMaximized ? styles.maximized : !isActivityMax ? styles.max : styles.maximized}`}
+					>
 						<div className={styles.outertopStatisticsBar}>
 							<div className={styles.topStatisticsBar}>
 								{/* ======================= Yogesh Start ========================== */}
-								<button onClick={() => toggleMaximize('activity')}>
-									{isActivityMaximized ? (
+								<button onClick={() => toggleMax('activity')}>
+									{isActivityMax  ? (
 										<FontAwesomeIcon icon={faCompress} className={styles.icon} />
 									) : (
 										<FontAwesomeIcon icon={faExpand} className={styles.icon} />
@@ -296,9 +304,12 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 							}}
 							unmountOnExit
 						>
+							{/* <div
+								className={`${styles.alignActivitiesContent} ${isActivityMaximized ? styles.maximized : styles.initial}`}
+							> */}
 							<div
 								className={`${styles.alignActivitiesContent} ${
-									isActivityMaximized ? styles.maximized : ''
+									!isActivityMaximized ? styles.max : styles.maximized
 								}`}
 							>
 								{/* ======================= Yogesh Ends ========================== */}
