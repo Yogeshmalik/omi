@@ -1,0 +1,2635 @@
+[
+    {
+        "_id": {
+            "$oid": "62e2c414e29292696e2bea73"
+        },
+        "user_id": 34188691,
+        "name": "Kajal Patel",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBJOtCQI=--fe46b5425c9d1721f54a3eb35c211e045a78e72d/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "role": "contractor",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "kajaldp2014@gmail.com",
+        "password": "$2y$10$HbHrB1rtGLs909JmZ7WcluWIcjeXoTWtMrzOo/20/fyeku6AgMv7u",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694287149759"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 24,
+        "project_ids": [
+            20302517,
+            28974506,
+            25473765,
+            20300350
+        ],
+        "projects": {
+            "20300350": {
+                "count": 20,
+                "project_name": "All Moments"
+            },
+            "20302517": {
+                "count": 1,
+                "project_name": "Clinic Doctor App"
+            },
+            "25473765": {
+                "count": 1,
+                "project_name": "GroSalon Android app"
+            },
+            "28974506": {
+                "count": 2,
+                "project_name": "Gro Consumer App"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 6,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17
+    },
+    {
+        "_id": {
+            "$oid": "6238a09433b00044e16ff103"
+        },
+        "user_id": 34600478,
+        "name": "Mohd Anas",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBB72DwI=--83a0422a3eedf32cc648f812250822fedaa20d39/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "email": "anasnew99@gmail.com",
+        "role": "team_lead",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "last_active_at": null,
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694235411735"
+            }
+        },
+        "tasks_count": 23,
+        "project_ids": [
+            25797712,
+            21102881,
+            21920141
+        ],
+        "projects": {
+            "21102881": {
+                "count": 12,
+                "project_name": "Tower App"
+            },
+            "21920141": {
+                "count": 3,
+                "project_name": "Anatomy Mapper"
+            },
+            "25797712": {
+                "count": 8,
+                "project_name": "LuminarTech"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 12
+    },
+    {
+        "_id": {
+            "$oid": "6238a8fe6e008214be35aba2"
+        },
+        "user_id": 33630774,
+        "name": "Anand",
+        "daily_hours_to_complete": "4",
+        "email": "anbhagat1997@gmail.com",
+        "role": "junior_developer",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$GQKBVNA0TL6ZORih7rmEeuh0VDLK1iCgjEzNQhE6WMZjs/3.RK2sy",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694271250925"
+            }
+        },
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBDYqAQI=--e192b7e89894729956773b723d8a64b3d5515cec/avatar-64-x4?v=1",
+        "last_active_at": null,
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "tasks_count": 18,
+        "project_ids": [
+            20301897,
+            21920141,
+            23190994,
+            28974506,
+            23190856,
+            20366990
+        ],
+        "projects": {
+            "20301897": {
+                "count": 3,
+                "project_name": "Clinic Web App"
+            },
+            "20366990": {
+                "count": 1,
+                "project_name": "Misc"
+            },
+            "21920141": {
+                "count": 4,
+                "project_name": "Anatomy Mapper"
+            },
+            "23190856": {
+                "count": 8,
+                "project_name": "RedWing"
+            },
+            "23190994": {
+                "count": 1,
+                "project_name": "Internal Project - Bidding Dashboard"
+            },
+            "28974506": {
+                "count": 1,
+                "project_name": "Gro Consumer App"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 5,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 15
+    },
+    {
+        "_id": {
+            "$oid": "632c2006ef5a6519a25fe9f3"
+        },
+        "user_id": 40974724,
+        "name": "Saif M",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBIQ5cQI=--5e520835dcfc31db9db0e6ddbb767e2772a76b60/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "email": "official.saifmalik@gmail.com",
+        "role": "full_time_intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$PtGTxfj.qicNxJdl6KYiS.EXv5S8XAlEL1384ZgeYaik8DI6WSQGS",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693593962479"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "last_active_at": null,
+        "tasks_count": 11,
+        "project_ids": [
+            21920141
+        ],
+        "projects": {
+            "21920141": {
+                "count": 11,
+                "project_name": "Anatomy Mapper"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 10,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 20
+    },
+    {
+        "_id": {
+            "$oid": "6379de9edb1b490696340d02"
+        },
+        "user_id": 41892429,
+        "name": "Pranay Pise",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBE06fwI=--8f6657e1d856f90d26232c1999ed4233073576cf/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "pranaypise59@gmail.com",
+        "password": "$2y$10$30wGr5pLrkjpRGU3AgS.g.pAaVf0xrwC91ScHPt3yXmZWc1amG/XC",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693931596944"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "last_active_at": null,
+        "role": "full_time_intern",
+        "tasks_count": 9,
+        "project_ids": [
+            21102881,
+            21920141
+        ],
+        "projects": {
+            "21102881": {
+                "count": 8,
+                "project_name": "Tower App"
+            },
+            "21920141": {
+                "count": 1,
+                "project_name": "Anatomy Mapper"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 15
+    },
+    {
+        "_id": {
+            "$oid": "62c7b1cd526362172f6c6116"
+        },
+        "user_id": 39913583,
+        "name": "Shashank Yadav",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBG8IYQI=--a6716bf2a93c85c99b72cecdc1b062945cd7e6e9/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "email": "yadavshashank70@gmail.com",
+        "role": "intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$P9F/2xo1tfYCgXg3k37DIO0u/XjVrvZ8TXlOiiwr8AdYa7YiuFqHS",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1672294423769"
+            }
+        },
+        "deleted_at": "2022-01-10T06:13:43.769+00:00",
+        "tasks_count": 8,
+        "project_ids": [
+            21102881
+        ],
+        "projects": {
+            "21102881": {
+                "count": 8,
+                "project_name": "Tower App"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 1,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "62e2c80231490b7f336a8453"
+        },
+        "user_id": 33630773,
+        "name": "Sakil Alam",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBDUqAQI=--1a6cd3c8be56ea1e1b4c3d66bee9be00542260b9/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "email": "sakil.alam2009@gmail.com",
+        "role": "team_lead",
+        "excluded_from_efficiency": false,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$lTjv0TjN9p/GDY1CHro1VuDiwSjaqyaV913D2Em9kMTCDEK7aMS/e",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694327708735"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 7,
+        "project_ids": [
+            27759839,
+            29241691,
+            20301897,
+            20300350,
+            23190856
+        ],
+        "projects": {
+            "20300350": {
+                "count": 1,
+                "project_name": "All Moments"
+            },
+            "20301897": {
+                "count": 1,
+                "project_name": "Clinic Web App"
+            },
+            "23190856": {
+                "count": 1,
+                "project_name": "RedWing"
+            },
+            "27759839": {
+                "count": 2,
+                "project_name": "SloanLED"
+            },
+            "29241691": {
+                "count": 2,
+                "project_name": "Desktop Budget Tool"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17
+    },
+    {
+        "_id": {
+            "$oid": "638482888c6d53686a5a3ef2"
+        },
+        "user_id": 42069206,
+        "name": "Sidharth Sethi",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBNbsgQI=--93d42e32c9c44824e4b821147717bea3c2bc4b56/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "sidharth.sherry@gmail.com",
+        "password": "$2y$10$KLFlY187/tLbJ3IvXRaLK.udOLP8dKoludFQ0fAVzywfCEBwJskxC",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1679542725841"
+            }
+        },
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1679542725841"
+            }
+        },
+        "tasks_count": 7,
+        "project_ids": [
+            21102881
+        ],
+        "projects": {
+            "21102881": {
+                "count": 7,
+                "project_name": "Tower App"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 20
+    },
+    {
+        "_id": {
+            "$oid": "638f72718272e41c95681813"
+        },
+        "user_id": 42026232,
+        "name": "Pritam Debnath",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBPhEgQI=--67cd13200ee653ae0de1571f5ef73951ef31f546/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "debnathpritam0802@gmail.com",
+        "password": "$2y$10$177p4FiGpBgLF/9jd.nqwussjJS2rwD98PPjZFRBeglfyRGtibV8u",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676541106741"
+            }
+        },
+        "team_lead_id": "6238a8fe6e008214be35aba2",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1676541106741"
+            }
+        },
+        "tasks_count": 6,
+        "project_ids": [
+            23190856
+        ],
+        "projects": {
+            "23190856": {
+                "count": 6,
+                "project_name": "RedWing"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19
+    },
+    {
+        "_id": {
+            "$oid": "63a045d4f48139124b0d8bd6"
+        },
+        "user_id": 41693739,
+        "name": "Mohtasheem Ejaz",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBCsyfAI=--a71b85194db166b921fd3f3c589dd004374948f5/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "deleted_at": "2022-01-10T15:08:37.151+00:00",
+        "tasks_count": 5,
+        "project_ids": [
+            21102881
+        ],
+        "projects": {
+            "21102881": {
+                "count": 5,
+                "project_name": "Tower App"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 6,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6368c00708611336c07fc952"
+        },
+        "user_id": 41693763,
+        "name": "Surendra",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBEMyfAI=--408fced5b9317d3cecfa0bae293eabb97b8100ca/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "vadapathysurendra@gmail.com",
+        "password": "$2y$10$0M87so1MqECO/ec19.MCxuQjnTitklGY4y/6meA.9B5Pd1dVOkISy",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676541394382"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1676541394382"
+            }
+        },
+        "tasks_count": 4,
+        "project_ids": [
+            21920141
+        ],
+        "projects": {
+            "21920141": {
+                "count": 4,
+                "project_name": "Anatomy Mapper"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 11,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 11
+    },
+    {
+        "_id": {
+            "$oid": "6371d046b769f9156a083332"
+        },
+        "user_id": 41839394,
+        "name": "Hansel Dsouza",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBCJrfgI=--52af2ad0f8bdaf8361272f037313579bd6c62378/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "hanseld54@gmail.com",
+        "password": "$2y$10$ocQYj59gOBa/mJlzqQKr2OOqx1OHJ.rP.30T../OOsy7g3oUt2yyO",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318179213"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318179213"
+            }
+        },
+        "tasks_count": 3,
+        "project_ids": [
+            21102881,
+            21920141
+        ],
+        "projects": {
+            "21102881": {
+                "count": 2,
+                "project_name": "Tower App"
+            },
+            "21920141": {
+                "count": 1,
+                "project_name": "Anatomy Mapper"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 18
+    },
+    {
+        "_id": {
+            "$oid": "6357d29f9dbe863826151d72"
+        },
+        "user_id": 41580896,
+        "name": "Veeresh R M",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBGB5egI=--f75b3c9423735e1ec8343ef4dabcf467e3060627/avatar-64-x4?v=1",
+        "daily_hours_to_complete": 8,
+        "role": "full_time_intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "veereshrm789@gmail.com",
+        "password": "$2y$10$/ioWWr8rIv4P.P/k4Qd0I.7iuKFfTBWWpgb88jgQQMAo52rBoC/Qm",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1678854233031"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1678854233031"
+            }
+        },
+        "tasks_count": 2,
+        "project_ids": [
+            21920141
+        ],
+        "projects": {
+            "21920141": {
+                "count": 2,
+                "project_name": "Anatomy Mapper"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 23
+    },
+    {
+        "_id": {
+            "$oid": "639717141ac55b09600a6f22"
+        },
+        "user_id": 42169403,
+        "name": "Pinak Parmar",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBDt0gwI=--e85ee48270f49251b8c53c7d094f029de0ab29dd/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "pinak001@protonmail.com",
+        "password": "$2y$10$wa.yToHP1346JBBHaMvV2OSy6egWBy5JLyhp/QmIuXCi3MKXeKhTe",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676540893451"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1676540893451"
+            }
+        },
+        "tasks_count": 2,
+        "project_ids": [
+            23190856,
+            21102881
+        ],
+        "projects": {
+            "21102881": {
+                "count": 1,
+                "project_name": "Tower App"
+            },
+            "23190856": {
+                "count": 1,
+                "project_name": "RedWing"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 25
+    },
+    {
+        "_id": {
+            "$oid": "639c0909f05c7ea27c045002"
+        },
+        "user_id": 42193500,
+        "name": "SAGNIK PAL",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBFzSgwI=--3a40e61a023a47755ed90fd5529b06feb0fbb3df/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "palsagnik2001@gmail.com",
+        "password": "$2y$10$5T.RjUd/g9pbb6Xq3ov.P.n51m6LQ1ltyBkpOhv1xaf3Jqd2.v/9S",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676541383727"
+            }
+        },
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1676541383727"
+            }
+        },
+        "tasks_count": 2,
+        "project_ids": [
+            29411602
+        ],
+        "projects": {
+            "29411602": {
+                "count": 2,
+                "project_name": "Anatomy Mapper (Education Version)"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63848417f4724e39376345e7"
+        },
+        "user_id": 41858786,
+        "name": "Naman Kharbanda",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBOK2fgI=--94c1668d1c3ee6ec70efd298dd84498da543265b/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "namankharbanda512@gmail.com",
+        "password": "$2y$10$91ylt/wgkin8VmLk/rpc8eg3b6/e31.AxwlL2zjq63qzvNt7AEeRe",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1679542742458"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1679542742458"
+            }
+        },
+        "tasks_count": 1,
+        "project_ids": [
+            23190856
+        ],
+        "projects": {
+            "23190856": {
+                "count": 1,
+                "project_name": "RedWing"
+            }
+        },
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 10
+    },
+    {
+        "_id": {
+            "$oid": "6399c990456f4c89ded42368"
+        },
+        "name": "Sunny Kumar",
+        "parent_id": "6399c7b2456f4c89ded42367",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 8,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6399c990456f4c89ded42369"
+        },
+        "name": "Winkt Sabarwal",
+        "parent_id": "6399c7b2456f4c89ded42367",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6399c990456f4c89ded4236a"
+        },
+        "name": "Neethu M",
+        "parent_id": "6399c7b2456f4c89ded42367",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 1,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6399c7b2456f4c89ded42367"
+        },
+        "email": "mailme.mahendra.sr@gmail.com",
+        "name": "mahendra",
+        "last_active_at": null,
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693901490742"
+            }
+        },
+        "avatar": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 23
+    },
+    {
+        "_id": {
+            "$oid": "6479a98c1ae04e5cab0ce025"
+        },
+        "user_id": 43718502,
+        "name": "",
+        "avatar": "",
+        "daily_hours_to_complete": 8,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 11,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 15,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2cc84827a69313c097b04"
+        },
+        "email": "puneet@fabrik.space",
+        "password": "$2y$10$dazS.a4OVLjhWYZ5rAjB/eTkTAND1TTnLKvjM97jCgcjkWb7V14ae",
+        "name": "Puneet B",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671613572216"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671613572216"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2ce00b2033895740ede02"
+        },
+        "email": "antony@fabrik.space",
+        "name": "Antony A",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614019730"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671613952260"
+            }
+        },
+        "parent_id": "63a2cc84827a69313c097b04",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 11,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2cea3b2033895740ede03"
+        },
+        "email": "shawn@fabrik.space",
+        "name": "Shawn T",
+        "parent_id": "63a2cc84827a69313c097b04",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614115668"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671614115668"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2ceb1860977c3d8056a74"
+        },
+        "email": "mohit@fabrik.space",
+        "name": "Mohit M",
+        "parent_id": "63a2cc84827a69313c097b04",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614129993"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671614129993"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 11,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2cebeae56a12bcb056a14"
+        },
+        "email": "jagriti@fabrik.space",
+        "name": "Jagriti K",
+        "parent_id": "63a2cc84827a69313c097b04",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614142629"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671614142629"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 10,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 10,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2ced6a2e681c2bb051f96"
+        },
+        "email": "syed@fabrik.space",
+        "name": "Syed K",
+        "parent_id": "63a2cc84827a69313c097b04",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614166910"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671614166910"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 10,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 10,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "63a2cee3827a69313c097b05"
+        },
+        "email": "sathian23@icloud.com",
+        "name": "Sathian M",
+        "parent_id": "63a2cc84827a69313c097b04",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671614179529"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671614179529"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 4,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 9,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "639c6e84753c0452710d1804"
+        },
+        "email": "pugaliapuneet@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1671196292418"
+            }
+        },
+        "name": "Puneet Pugalia",
+        "google_id": "111566807437833371104",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676784104454"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671196292458"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 14
+    },
+    {
+        "_id": {
+            "$oid": "63a31e03d69f32bcfe0b6062"
+        },
+        "email": "vadaparthysurendra@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1671634435716"
+            }
+        },
+        "name": "surendra Vadaparthy",
+        "google_id": "104272924055103116647",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1671634435719"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1671634435719"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 1,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 2,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "641000ac38e8358b9b0dfe34"
+        },
+        "email": "devansiadhikari@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1678770348359"
+            }
+        },
+        "name": "devansi adhikari",
+        "google_id": "102789788247909933463",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1680196116410"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1678770348362"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 1,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 3
+    },
+    {
+        "_id": {
+            "$oid": "6413271f8745762f0202b2e4"
+        },
+        "email": "vedant@iiitmanipur.ac.in",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1678976799546"
+            }
+        },
+        "name": "VEDANT KUMAR",
+        "google_id": "111643532334066344386",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1678976799550"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1678976799550"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 22,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6413f2358285311d470dc316"
+        },
+        "email": "vishaldaber19@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1679028789529"
+            }
+        },
+        "name": "Vishal Daber",
+        "google_id": "117818709096079569697",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1679028789532"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1679028789532"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 9,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 16,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "643e397d563f2607880da832"
+        },
+        "email": "krishtasood2@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1681799549350"
+            }
+        },
+        "name": "ItsKrish01",
+        "google_id": "117542767975010600213",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1684170067676"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1681799549354"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 14,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24
+    },
+    {
+        "_id": {
+            "$oid": "643fd01f384638f76903c092"
+        },
+        "email": "testingprojects1992@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1681903647247"
+            }
+        },
+        "name": "Project Testing",
+        "google_id": "104140137099067042902",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1681903647293"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1681903647293"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 23,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64646bd8c4b9c826220183a4"
+        },
+        "email": "arish.gzp988@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1684302808163"
+            }
+        },
+        "name": "arish siddiqui",
+        "google_id": "108764285624634219992",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1684302808166"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1684302808166"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 9,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 13,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6479c9ce7865f385750e5ae2"
+        },
+        "email": "actprinceabhishek.india@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1685703118317"
+            }
+        },
+        "name": "Abhishek Sharma",
+        "google_id": "109155401503592162957",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1685716352313"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1685703118319"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 22
+    },
+    {
+        "_id": {
+            "$oid": "6489bfa52e5c90305c093564"
+        },
+        "email": "drren@capily.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1686749093853"
+            }
+        },
+        "name": "Leon Ren",
+        "google_id": "103814332333482160132",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1686749093855"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1686749093855"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "648b3dde70ba155ddd024e24"
+        },
+        "email": "rashinkaralka@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1686846942162"
+            }
+        },
+        "name": "Alka rashinkar",
+        "google_id": "109631255077568671643",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1686846942164"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1686846942164"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 21,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64916cd9464100538d00b882"
+        },
+        "email": "amitjagdale1998@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1687252185107"
+            }
+        },
+        "name": "Amit Jagdale",
+        "google_id": "103482205327008926352",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1687252185144"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1687252185144"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 4,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 22,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64b00d2959100a8c4f094392"
+        },
+        "email": "bloggerakash9@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1689259305293"
+            }
+        },
+        "name": "LTAH",
+        "google_id": "116711586757449502002",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689259305295"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1689259305295"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64c8da7158d1eaa32e06fd64"
+        },
+        "email": "kunaltankra2002@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1690884721288"
+            }
+        },
+        "name": "Kunal Tankra",
+        "google_id": "108327981687620060447",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1690884721290"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1690884721290"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64df9fed46594054c5048322"
+        },
+        "email": "66amitt77@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1692377069038"
+            }
+        },
+        "name": "Amit Singh",
+        "google_id": "114239383491626814722",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1692377069040"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1692377069040"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64e64416c90f92add40e4aa2"
+        },
+        "email": "akhil7018559393@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1692812310296"
+            }
+        },
+        "name": "Akhil Sharma",
+        "google_id": "111306359455566925147",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1692812310299"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1692812310299"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 8,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64f1a0855420bb3cbc017062"
+        },
+        "email": "abbysmailbox36@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1693556869929"
+            }
+        },
+        "name": "Arbaaz Ahmad",
+        "google_id": "111838906047903458119",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693556869931"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693556869931"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64f1a0f4fc6849f69b013c92"
+        },
+        "email": "turkeyking111@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1693556980674"
+            }
+        },
+        "name": "Turkey King",
+        "google_id": "115194426945110804911",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693556980709"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693556980709"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 4,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 6,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64f4b84601685085e6091204"
+        },
+        "email": "dashpragati22@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1693759558630"
+            }
+        },
+        "name": "Pragati Dash",
+        "google_id": "117657087760222374281",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693759558633"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693759558633"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 9,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64f9107e97500f298902a924"
+        },
+        "email": "ysmworking@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1694044286354"
+            }
+        },
+        "name": "Singh Malik",
+        "google_id": "114046054494262677569",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694044286388"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1694044286388"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 12,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 18,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "639c49f29d47f9ed23054672"
+        },
+        "user_id": 42314709,
+        "name": "Debopriya Dey",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBNWrhQI=--456a34883455055028b4608b1849be05f15fdb8d/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "deleted_at": "2022-01-10T15:08:37.151+00:00",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 21,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6411ef0299c6b994630a66f4"
+        },
+        "email": "rsaravanan19930@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1678896898924"
+            }
+        },
+        "name": "Saravanan Ravi",
+        "google_id": "110968237694727475732",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1681929512103"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1678896898927"
+            }
+        },
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1681929512103"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 1,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 11,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6433c28bee55d9c26a040732"
+        },
+        "email": "aparparmar07@gmail.com",
+        "name": "Apar Parmar",
+        "daily_hours_to_complete": "0",
+        "role": "contractor",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693734521387"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1681113739443"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 6,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 7
+    },
+    {
+        "_id": {
+            "$oid": "643fe84a996cc52f08040a14"
+        },
+        "name": "Test user",
+        "email": "krishtasood1@gmail.com",
+        "daily_hours_to_complete": "1",
+        "role": "part_time_intern",
+        "parent_id": "643e397d563f2607880da832",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1684254642650"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1681909834158"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 5,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 22
+    },
+    {
+        "_id": {
+            "$oid": "645397b64c16c05400060202"
+        },
+        "name": "Abhilash Tripathi",
+        "email": "abhitrip456@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1690646885642"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1683199926244"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 18
+    },
+    {
+        "_id": {
+            "$oid": "6469da9733a55f594b05d322"
+        },
+        "name": "Ashutosh Mathore",
+        "email": "akmathore99@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "parent_id": "6469d9559b22628d620becd6",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1685358475417"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1684658839881"
+            }
+        },
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 1
+    },
+    {
+        "_id": {
+            "$oid": "64e5b2bc890ea590ef07ea62"
+        },
+        "email": "akhil.shr21@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1692775100109"
+            }
+        },
+        "name": "Akhil Sharma",
+        "google_id": "100818774827016591132",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693206325680"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1692775100143"
+            }
+        },
+        "parent_id": "6399e6f531d215195e0f0494",
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 24
+    },
+    {
+        "_id": {
+            "$oid": "64f0d89c459aa145ea0ab6f2"
+        },
+        "email": "arbaazahmad0132cs191020@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1693505692949"
+            }
+        },
+        "name": "Arbaaz Ahmad",
+        "google_id": "115386665955746615530",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694362595025"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693505692951"
+            }
+        },
+        "last_active_at": null,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 5,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 12
+    },
+    {
+        "_id": {
+            "$oid": "64f599106dea9ff79f05a232"
+        },
+        "email": "ysmworking@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1693817104206"
+            }
+        },
+        "name": "Singh Malik",
+        "google_id": "114046054494262677569",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693817680682"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693817104208"
+            }
+        },
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1693817680682"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 23,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "645098d99f37575eef0066a2"
+        },
+        "name": "Random user",
+        "email": "Krishtasood2@gmail.com",
+        "daily_hours_to_complete": "6",
+        "role": "part_time_intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318337293"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1683003609579"
+            }
+        },
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318337293"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 5,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "6469d9559b22628d620becd6"
+        },
+        "email": "akmathore@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1684658517945"
+            }
+        },
+        "name": "Ashutosh Mathore",
+        "google_id": "102367707202785193992",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1685689035326"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1684658517948"
+            }
+        },
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 10,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19
+    },
+    {
+        "_id": {
+            "$oid": "6494911435456befaa0bd692"
+        },
+        "email": "yusufahmedzia195@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1687458068503"
+            }
+        },
+        "name": "Yusuf Ahmed 2",
+        "google_id": "106112850255001056195",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1692615493381"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1687458068506"
+            }
+        },
+        "last_active_at": null,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$IECcW0vPY2W2q085K7BeaejDaXusN/O1oWdl1MU6UZEZkM9Q9Cpwi",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 21
+    },
+    {
+        "_id": {
+            "$oid": "63d8a2dfd1d397b084021362"
+        },
+        "name": "Omkar Anil Jawalkar",
+        "email": "omkarjawalkar234@gmail.com",
+        "role": "full_time_intern",
+        "daily_hours_to_complete": "8",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318159337"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1675141855107"
+            }
+        },
+        "last_active_at": null,
+        "password": "$2y$10$kJdnsmV9wftNrAc2kFqAKOGOn0glDFmKTVUeL9csNPh5tI8Vjtgpu",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318159337"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 14,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 19
+    },
+    {
+        "_id": {
+            "$oid": "63edda259afc83788402a292"
+        },
+        "name": "Jay Patel",
+        "email": "jayashokpatel29@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318166307"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1676532261266"
+            }
+        },
+        "last_active_at": null,
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318166307"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 4,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 4
+    },
+    {
+        "_id": {
+            "$oid": "63fc3586ec43576ee20e1385"
+        },
+        "email": "30octaksharma@gmail.com",
+        "name": "Ashish",
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1679542715265"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1677473158129"
+            }
+        },
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1679542715265"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17
+    },
+    {
+        "_id": {
+            "$oid": "648ff05507f7716d5707ffa4"
+        },
+        "name": "Yusuf Ahmed",
+        "email": "Yusufahmed195@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1687182359146"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1687154773917"
+            }
+        },
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1687182359146"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 14,
+        "last_active_at": null
+    },
+    {
+        "_id": {
+            "$oid": "64c7b0a62f91556a1f0c1e12"
+        },
+        "name": "Kaushal Jaysawal",
+        "email": "kaushalnbt@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6238a8fe6e008214be35aba2",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1691502516593"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1690808486196"
+            }
+        },
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1691502516593"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 5
+    },
+    {
+        "_id": {
+            "$oid": "64e4c06d2ac8926bba0fbdd2"
+        },
+        "name": "Akhil Sharma",
+        "email": "akhilsharma6721@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1693206938312"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1692713069951"
+            }
+        },
+        "password": "$2y$10$7cynCNvUr0BBgXnPfOGDJef4XsjWxVnprshygoWPKz.seWiicMFP6",
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 4,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17
+    },
+    {
+        "_id": {
+            "$oid": "64ef3708f1a21f7a950cf1a4"
+        },
+        "name": "Arbaaz Ahmad",
+        "email": "arbaazuniquegzp@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694363217493"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1693398792589"
+            }
+        },
+        "last_active_at": null,
+        "password": "$2y$10$Vzp0j43sdKUpt7UT/Lyhh.c1gSdKx3svJr02Go9bkZdRGO1xmBrPG",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 15
+    },
+    {
+        "_id": {
+            "$oid": "6412c566e9081bb271030c82"
+        },
+        "name": "Manoj Kumar",
+        "email": "manojkumarathiyappan@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1680689799659"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1678951782981"
+            }
+        },
+        "last_active_at": null,
+        "password": "$2y$10$ewqp.c6iwrffbzD3YYWe0.cJtoroAAWmfn32hhYmderGTWnNLJt0K",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1680689799659"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 13,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 13
+    },
+    {
+        "_id": {
+            "$oid": "6417ed2ecd401c038f0f07c6"
+        },
+        "name": "Krish Tasood",
+        "email": "krishtasood@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318197054"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1679289646699"
+            }
+        },
+        "last_active_at": null,
+        "password": "$2y$10$WSWNQg9UfgrCENdhTQP9Vems.vm1CJX3rEicwTDmjASnMLBA7IiHe",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318197054"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 8,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 10
+    },
+    {
+        "_id": {
+            "$oid": "647893c12570626d56050434"
+        },
+        "name": "Abhishek Sharma",
+        "email": "abhisheksharma131098@gmail.com",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318170324"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1685623745777"
+            }
+        },
+        "last_active_at": null,
+        "password": "$2y$10$ZHpcyZF8SHwXFdIjliSMhOGE86jmNgzRETG4qK1yhzqBtWAuxC6Iq",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318170324"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 2,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 9
+    },
+    {
+        "_id": {
+            "$oid": "648ad67c9c9424e7e7065824"
+        },
+        "email": "dwivediom00@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1686820476210"
+            }
+        },
+        "name": "Om dwivedi",
+        "google_id": "112728602681768275633",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694061780808"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1686820476213"
+            }
+        },
+        "last_active_at": null,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$thqP636y/B.7mKRS6SjireE/6ddxvchOdxS2N83wHjRhX95jEgrmG",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 11,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 11
+    },
+    {
+        "_id": {
+            "$oid": "649054822a9135af6e0ccce2"
+        },
+        "email": "yusufahmed195@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1687180418344"
+            }
+        },
+        "name": "Yusuf Ahmed",
+        "google_id": "100142173431973508528",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694254969780"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1687180418346"
+            }
+        },
+        "parent_id": "6399e6f531d215195e0f0494",
+        "password": "$2y$10$CLeLOgDcT4yjYnGPoIGeo.SQ/2Sch38IjMwYwo3qNBcxM032RAVN.",
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "last_active_at": null,
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 3,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 10
+    },
+    {
+        "_id": {
+            "$oid": "6392d0f2df9d2e74991c6f22"
+        },
+        "user_id": 42102128,
+        "name": "Amit Naik",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBHBtggI=--4a25f13527ce10606e7a39763bddfba4e6f58ea5/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "amitnaik3108@gmail.com",
+        "password": "$2y$10$gNRsApHyD/fZ45yqC92y8.6AcF2y/DO2D4JqSAAeuk4PLwirAAQ6m",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1678854264033"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1678854264033"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 15,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 20
+    },
+    {
+        "_id": {
+            "$oid": "639741165c9a487d2d373352"
+        },
+        "user_id": 42211535,
+        "name": "Ritesh Mangdare",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBM8YhAI=--85fe473ac59f6301fd5f30de32e9f92f660b650e/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "riteshmangdare@gmail.com",
+        "password": "$2y$10$TjSe8etdwHbl7bVRjFTnrOyLYXO7hppF63ImitPmyvCV3PgvwTqVa",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1674570768493"
+            }
+        },
+        "role": "full_time_intern",
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "last_active_at": null,
+        "deleted_at": "2023-03-06T17:26:34.381+00:00",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 7,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 17
+    },
+    {
+        "_id": {
+            "$oid": "63a1bd0664d9f4287704d0c5"
+        },
+        "user_id": 42034999,
+        "name": "Ankit Vashishth",
+        "avatar": "https://bc3-production-assets-cdn.basecamp-static.com/4954106/people/BAhpBDdngQI=--70f355aeaed83ee8794f3a9c989f80a7059afa0b/avatar?v=1",
+        "daily_hours_to_complete": 8,
+        "parent_id": "6399e6f531d215195e0f0494",
+        "email": "ankitvashishth2000@gmail.com",
+        "password": "$2y$10$IR1RjLMvZJ45TCLKn4eBCeHsU0qacqN6vBWa2HrRIvZ1kb6ih1/i2",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1676481994381"
+            }
+        },
+        "team_lead_id": "6238a09433b00044e16ff103",
+        "role": "full_time_intern",
+        "last_active_at": null,
+        "deleted_at": "2023-03-06T17:26:34.381+00:00",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 5,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 7
+    },
+    {
+        "_id": {
+            "$oid": "6459faf84d4672d4f404cae4"
+        },
+        "email": "mathoreashutosh@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1683618552345"
+            }
+        },
+        "name": "Ashutosh Mathore",
+        "google_id": "114930094779957115196",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1689318184132"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1683618552347"
+            }
+        },
+        "password": "$2y$10$4CGkPnhfs2uTWPB9xAIF4eFodhGSaUaXqdO1/o2KL5bwMDzP6lYnu",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "last_active_at": null,
+        "daily_hours_to_complete": "8",
+        "role": "full_time_intern",
+        "deleted_at": {
+            "$date": {
+                "$numberLong": "1689318184132"
+            }
+        },
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 3,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 23
+    },
+    {
+        "_id": {
+            "$oid": "648ae690faca1361ae09c762"
+        },
+        "email": "akashngadhave@gmail.com",
+        "email_verified_at": {
+            "$date": {
+                "$numberLong": "1686824592729"
+            }
+        },
+        "name": "Akash Narayan Gadhave",
+        "google_id": "105292097590580882442",
+        "updated_at": {
+            "$date": {
+                "$numberLong": "1694196034880"
+            }
+        },
+        "created_at": {
+            "$date": {
+                "$numberLong": "1686824592764"
+            }
+        },
+        "password": "$2y$10$MGHT/woEjdjezmOQ3A1mLuqWPXoQKG3DCLTWRA6qJLgauUTAWxHoG",
+        "parent_id": "6399e6f531d215195e0f0494",
+        "last_active_at": null,
+        "daily_hours_to_complete": "8",
+        "role": "junior_developer",
+        "team_lead_id": "6399e6f531d215195e0f0494",
+        "tasks_count": 0,
+        "project_ids": [],
+        "projects": [],
+        "active_count": " ",
+        "completed_todo": 0,
+        "monthly_completed_todo": 0,
+        "weekly_completed_todo": 0,
+        "weekly_average_per_day": 0,
+        "active_todo_count": 18
+    }
+]
