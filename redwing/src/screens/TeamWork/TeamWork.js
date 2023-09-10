@@ -283,6 +283,15 @@ const TeamWork = ({
 	// 		});
 	// };
 
+	// Render Segments
+	const renderSegments = users => {
+		const segmentName = 'default segment';
+		if (segmentName == 'default segment') {
+			let tab1 = [];
+			let tab2 = [];
+		}
+	};
+
 	useEffect(() => {
 		var users = [];
 		if (data && data.users && data.users.length) {
@@ -673,6 +682,7 @@ const TeamWork = ({
 										</tr>
 									</thead>
 									<tbody>
+										{console.log('userssss', users)}
 										{users
 											? users.map((user, key) => {
 													return (
@@ -693,7 +703,6 @@ const TeamWork = ({
 																getTeamWorkData={getTeamWorkData}
 																setLoading={setLoading}
 															/>
-															{/* <h1>Hello</h1> */}
 														</>
 													);
 											  })
