@@ -1,8 +1,6 @@
 // red_wing_token = BAhbB0kiAbB7ImNsaWVudF9pZCI6IjdkMDM2OTdhZGM4ODY5OTZhNjczNjM0Yjg5ZDUxZDhmZWJiMjk5NzkiLCJleHBpcmVzX2F0IjoiMjAyMy0wOS0xOFQwODo0ODozOVoiLCJ1c2VyX2lkcyI6WzQ4NTA1NjYzXSwidmVyc2lvbiI6MSwiYXBpX2RlYWRib2x0IjoiMjQ2NmY3MmRhNjg5YTkzODdiYmNmYTRjODMwOWYyYzcifQY6BkVUSXU6CVRpbWUNSOIewPYHfsIJOg1uYW5vX251bWkCQwE6DW5hbm9fZGVuaQY6DXN1Ym1pY3JvIgcyMDoJem9uZUkiCFVUQwY7AEY=--c795d257b02b4d0cbc781dfa4fe2e655262e71a1
 // red_wing_token_expiry_date = Mon Sep 18 2023 14:18:40 GMT+0530 (India Standard Time)
 
-// new component , 3 radio button. whenever click one particular button, then save that value in a variable
-
 import axios from 'axios';
 import './TeamWork.css';
 import { motion } from 'framer-motion';
@@ -84,6 +82,7 @@ const TeamWork = ({
 	const [loadings, setLoadings] = useState(true); // Add loading state if needed
 	const [dynamicUsers, setDynamicUsers] = useState([]);
 	let countRef = React.useRef({ playgroundSegment: 0, projectSegment: 0, optimiseSegment: 0 });
+	const [projectsAssociation, setProjectAssociation] = useState({});
 
 	const dynamicUserData = {
 		absents: [],
@@ -345,6 +344,17 @@ const TeamWork = ({
 			dynamicUserData.slowdowns = slowdowns;
 			setDynamicUsers(filteredUsers);
 		}
+		console.log('firstt', users);
+		let projectand = users.reduce((prev, curr) => {
+			Object.values(curr?.projects).forEach(project => {
+				if (prev[project.project_name]) {
+					prev[project.project_name].push(curr.name.split(' ')[0]);
+				} else prev[project.project_name] = [curr.name];
+			});
+			return prev;
+		}, {});
+		setProjectAssociation(projectand);
+		// console.log('projectand', projectand);
 		// console.log(`Number of Absents: ${dynamicUserData.absents.length}`);
 		// console.log(
 		// 	`Number of Idles: ${dynamicUserData.idles.length}, Names of Idles: ${dynamicUserData.idles
@@ -366,7 +376,7 @@ const TeamWork = ({
 			projects.push(projectData[k]);
 		}
 		setProjects(projects);
-		console.log(projects);
+		// console.log(projects);
 	}, [projectData]);
 
 	const handleRefreshUserList = () => {
@@ -385,7 +395,7 @@ const TeamWork = ({
 					// getProjectData();
 				} else {
 					alert('Something went wrong');
-					console.log(res.data);
+					// console.log(res.data);
 				}
 				setLoading(false);
 			})
@@ -436,7 +446,7 @@ const TeamWork = ({
 					} else {
 						handleOpenProjectModal();
 						alert('Something went wrong');
-						console.log(res.data);
+						// console.log(res.data);
 					}
 					setLoading(false);
 				})
@@ -552,9 +562,24 @@ const TeamWork = ({
 							{/* <h2>{segment.segmentTitle}</h2> */}
 							{/* {selectedSegment === segment.segmentName && (						 */}
 							{segments.map(segment => (
-								<div key={segment.segmentName}>
-									<TeamTabBottom>
-										<table cellspacing='0' cellpadding='0'>
+								<div
+									key={segment.segmentName}
+									style={{
+										marginBottom: '2rem'
+									}}
+								>
+									<TeamTabBottom
+										style={{
+											marginBottom: '2rem'
+										}}
+									>
+										<table
+											style={{
+												marginBottom: '5rem'
+											}}
+											cellspacing='0'
+											cellpadding='0'
+										>
 											<thead>
 												<tr>
 													<th
@@ -731,7 +756,7 @@ const TeamWork = ({
 																		fontFamily: 'Poppins',
 																		fontWeight: '500',
 																		width: '1%',
-																		'white-space': 'nowrap', 
+																		'white-space': 'nowrap',
 																		paddingBottom: '10px'
 																	}}
 																>
@@ -829,6 +854,68 @@ const TeamWork = ({
 											</MdContainer>
 										)}
 									</TeamTabBottom>
+									{segment.segmentName === 'projectSegment' && (
+										<Projects
+											style={{
+												color: 'red',
+												fontSize: '1.35rem',
+												margin: '5rem 0'
+											}}
+										>
+											<table>
+												<thead>
+													<tr>
+														<th
+															style={{
+																textAlign: 'left',
+																color: '#1bdb51',
+																fontWeight: 'bold',
+																fontSize: '1.7rem'
+															}}
+														>
+															Projects
+														</th>
+														<th
+															style={{
+																textAlign: 'left',
+																color: '#1bdb51',
+																fontWeight: 'bold',
+																fontSize: '1.7rem'
+															}}
+														>
+															People Involved
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													{Object.keys(projectsAssociation).map(project => (
+														<tr key={project} style={{ textAlign: 'left' }}>
+															<td
+																style={{
+																	fontWeight: '400',
+																	fontSize: '1.3rem',
+																	paddingLeft: '.5rem'
+																}}
+															>
+																{project}
+															</td>
+															<td
+																style={{
+																	textAlign: 'left',
+																	paddingRight: '8rem',
+																	paddingLeft: '1.5rem',
+																	fontWeight: '400',
+																	fontSize: '1.3rem'
+																}}
+															>
+																{projectsAssociation[project]?.join(', ')}
+															</td>
+														</tr>
+													))}
+												</tbody>
+											</table>
+										</Projects>
+									)}
 									{/* )} */}
 								</div>
 							))}
@@ -1041,7 +1128,7 @@ const TableRow = props => {
 		}
 	};
 	const getProjectCount = (projectid, userid) => {
-		console.log(props.data);
+		// console.log(props.data);
 		for (let i = 0; i < props.data.length; i++) {
 			if (props.data[i].user_id === userid) {
 				return props.data[i]?.projects[projectid]?.count;
@@ -1049,7 +1136,7 @@ const TableRow = props => {
 		}
 	};
 	const handleDeleteMember = user_id => {
-		console.log(user_id);
+		// console.log(user_id);
 		axios
 			.post(
 				`${process.env.REACT_APP_API_URL}/pages/delete_user.php`,
@@ -1067,7 +1154,7 @@ const TableRow = props => {
 					// getProjectData();
 				} else {
 					alert('Something went wrong');
-					console.log(res.data);
+					// console.log(res.data);
 				}
 				props.getTeamWorkData();
 				props.setLoading(false);
@@ -1126,11 +1213,11 @@ const TableRow = props => {
 			return 'white';
 		}
 	}, [props.name]);
-	console.log('Golu', setUserColor);
+	// console.log('YSM Color', setUserColor);
 	/* ************************** YSM S ****************** */
 
-	console.log(parseInt(props.active?.split('(')[0]) - props.completed_todo);
-	console.log(props.active);
+	// console.log(parseInt(props.active?.split('(')[0]) - props.completed_todo);
+	// console.log(props.active);
 	return (
 		<tr style={{ marginTop: '0', paddingTop: '0' }}>
 			<td style={{ fontSize: '14px' }}>
