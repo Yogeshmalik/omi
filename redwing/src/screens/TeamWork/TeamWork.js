@@ -235,7 +235,7 @@ const [selectedSegment, setSelectedSegment] = useState('defaultSegment');
 
 // Render Segments
 const showSegmenting = users => {
-	const segmentName = 'optimiseSegment';
+	const segmentName = 'projectSegment' && 'optimiseSegment' && 'defaultSegment';
 		let segmentTitle;
 		if (segmentName === 'defaultSegment') {
 			segmentTitle = 'Team Members';
