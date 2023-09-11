@@ -1,6 +1,8 @@
 // red_wing_token = BAhbB0kiAbB7ImNsaWVudF9pZCI6IjdkMDM2OTdhZGM4ODY5OTZhNjczNjM0Yjg5ZDUxZDhmZWJiMjk5NzkiLCJleHBpcmVzX2F0IjoiMjAyMy0wOS0xOFQwODo0ODozOVoiLCJ1c2VyX2lkcyI6WzQ4NTA1NjYzXSwidmVyc2lvbiI6MSwiYXBpX2RlYWRib2x0IjoiMjQ2NmY3MmRhNjg5YTkzODdiYmNmYTRjODMwOWYyYzcifQY6BkVUSXU6CVRpbWUNSOIewPYHfsIJOg1uYW5vX251bWkCQwE6DW5hbm9fZGVuaQY6DXN1Ym1pY3JvIgcyMDoJem9uZUkiCFVUQwY7AEY=--c795d257b02b4d0cbc781dfa4fe2e655262e71a1
 // red_wing_token_expiry_date = Mon Sep 18 2023 14:18:40 GMT+0530 (India Standard Time)
 
+// new component , 3 radio button. whenever click one particular button, then save that value in a variable
+
 import axios from 'axios';
 import './TeamWork.css';
 import { motion } from 'framer-motion';
@@ -64,7 +66,7 @@ const TeamWork = ({
 	const [data, setData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData) : {}
 	);
-	console.log('data=', data);
+	// console.log('data=', data);
 	const [projectData, setProjectData] = useState(
 		localStorage.getItem('redwing_data') ? JSON.parse(localStorageData).projects : []
 	);
@@ -79,10 +81,10 @@ const TeamWork = ({
 	const [openDeleteModal, setOpenDeleteModal] = useState(false);
 	const [deleteMember, setDeleteMember] = useState({ img: '', name: '', user_id: '' });
 	/* YSM start */
-	const [userData, setUserData] = useState(null); // Initialize state for user data
 	const [loadings, setLoadings] = useState(true); // Add loading state if needed
-
 	const [dynamicUsers, setDynamicUsers] = useState([]);
+	
+
 	const dynamicUserData = {
 		absents: [],
 		idles: [],
@@ -93,65 +95,6 @@ const TeamWork = ({
 		idles: [],
 		slowdowns: []
 	});
-
-	const moreUsers = [
-		{
-			name: 'Person A',
-			color: 'yellow',
-			ticks: 1,
-			imgSrc:
-				'https://img.freepik.com/free-vector/hand-drawn-flat-design-anarchy-symbol_23-2149244365.jpg?size=626&ext=jpg&ga=GA1.2.2011121742.1687571399&semt=sph'
-		},
-		{
-			name: 'Person B',
-			color: 'yellow',
-			ticks: 2,
-			imgSrc:
-				'https://img.freepik.com/free-vector/b-letter-initial-colorful-gradient-design_474888-2659.jpg?w=740&t=st=1694257521~exp=1694258121~hmac=d8c346b26f4730ccd346ee6a8894c9aa52afe0ffd7caaffd9641c93cf00df063'
-		},
-		{
-			name: 'Person C',
-			color: 'yellow',
-			ticks: 3,
-			imgSrc:
-				'https://img.freepik.com/free-vector/branding-identity-corporate-c-logo-vector-design-template_460848-13936.jpg?w=740&t=st=1694257564~exp=1694258164~hmac=689cfbc0079e014c8b1e55d745215a6add79541ee8b66bbcad12a1d3384aeecd'
-		},
-		{
-			name: 'Person D',
-			color: 'red',
-			ticks: 0,
-			imgSrc:
-				'https://img.freepik.com/free-vector/letter-d-gradient-icon-logo-design_474888-2589.jpg?w=740&t=st=1694257589~exp=1694258189~hmac=57dec11314bbb4596ee17b62f9efee101afae91ea6dbb670878ded3bf8bbbe82'
-		},
-		{
-			name: 'Person E',
-			color: 'red',
-			ticks: 0,
-			imgSrc:
-				'https://img.freepik.com/free-vector/e-letter_53876-60349.jpg?w=740&t=st=1694257619~exp=1694258219~hmac=59f5cdb49f66b728ab0896681dab0e6638bd6c9204ae6c159a41dd627b3ed911'
-		},
-		{
-			name: 'Person F',
-			color: '#13b497',
-			ticks: 0,
-			imgSrc:
-				'https://img.freepik.com/free-vector/f-letter_53876-60350.jpg?w=740&t=st=1694257672~exp=1694258272~hmac=09d2adc56ac7b03d286fd4c2d6edac731112dc3cbe0ad8dba9dfcc12328b98b7'
-		},
-		{
-			name: 'Person Y',
-			color: '#13b497',
-			ticks: 0,
-			imgSrc:
-				'https://media.licdn.com/dms/image/D4D03AQEmyCzQvDIMcQ/profile-displayphoto-shrink_200_200/0/1689586034828?e=1699488000&v=beta&t=swEAtkv40CKM_aywCKeA-zBuUEyCJ2vHcM5cSJabLy8'
-		}
-	];
-
-	// Calculate the counts of users for each color category
-	const userCounts = {
-		red: moreUsers.filter(moreUser => moreUser.color === 'red'),
-		yellow: moreUsers.filter(moreUser => moreUser.color === 'yellow'),
-		'#13b497': moreUsers.filter(moreUser => moreUser.color === '#13b497')
-	};
 
 	const handleSorting = col => {
 		if (sortingColumn === col) {
@@ -283,25 +226,35 @@ const TeamWork = ({
 	// 		});
 	// };
 
-	// Render Segments
-	const showSegmenting = users => {
-		const segmentName = 'optimiseSegment';
+/* ********************** YSM S ****************** */
+const [selectedSegment, setSelectedSegment] = useState('defaultSegment');
+
+  const handleSegmentChange = (segmentName) => {
+    setSelectedSegment(segmentName);
+  };
+
+// Render Segments
+const showSegmenting = users => {
+	const segmentName = 'optimiseSegment';
+		let segmentTitle;
 		if (segmentName === 'defaultSegment') {
+			segmentTitle = 'Team Members';
 			const tab1 = [],
-				tab2 = [];
+			tab2 = [];
 			users?.reduce((prev, acc) => {
 				const isRedWing =
-					Object.values(acc?.projects)
-						?.map(projectDetails => projectDetails?.project_name == 'RedWing')
-						.filter(Boolean).length > 0;
+				Object.values(acc?.projects)
+				?.map(projectDetails => projectDetails?.project_name == 'RedWing')
+				.filter(Boolean).length > 0;
 				if (!!isRedWing) {
 					tab1.push(acc);
 				} else tab2.push(acc);
 			}, []);
-			return [tab1, tab2];
+			return { segmentTitle, tabs: [tab1, tab2] };
 		} else if (segmentName == 'projectSegment') {
+			segmentTitle = 'Project Segment';
 			const tab1 = [],
-				tab2 = [];
+			tab2 = [];
 			users?.reduce((prev, acc) => {
 				if (acc?.project_ids?.length > 0) {
 					tab1.push(acc);
@@ -310,11 +263,12 @@ const TeamWork = ({
 					tab2.push(acc);
 				}
 			}, []);
-			return [tab1, tab2];
+			return { segmentTitle, tabs: [tab1, tab2] }
 		} else if (segmentName == 'optimiseSegment') {
+			segmentTitle = 'Optimise Segment';
 			const tab1 = [],
-				tab2 = [],
-				tab3 = [];
+			tab2 = [],
+			tab3 = [];
 			users?.reduce((prev, acc) => {
 				if (acc?.completed_todo > 5) {
 					tab1.push(acc);
@@ -324,10 +278,30 @@ const TeamWork = ({
 					tab2.push(acc);
 				}
 			}, []);
-			return [tab1, tab2, tab3];
+			return { segmentTitle, tabs: [tab1, tab2, tab3] };
 		}
 	};
-
+	
+	const segments = [
+		{
+			segmentName: 'defaultSegment',
+			segmentTitle: 'Team Members',
+		},
+		{
+			segmentName: 'projectSegment',
+			segmentTitle: 'In Project Segment',
+		},
+		{
+			segmentName: 'optimiseSegment',
+			segmentTitle: 'In Optimise Segment',
+		},
+		{
+			segmentName: 'playgroundSegment',
+			segmentTitle: 'In Playground',
+		},
+	];
+	
+	/* ********************** YSM E ****************** */
 	useEffect(() => {
 		var users = [];
 		if (data && data.users && data.users.length) {
@@ -558,366 +532,354 @@ const TeamWork = ({
 									</table>
 								</TeamTabTop>
 							)}
-							<TeamTabBottom>
-								<table cellspacing='0' cellpadding='0'>
-									<thead>
-										<tr>
-											<th
-												onClick={e => {
-													e.preventDefault();
-													setSortingColumn('name');
-													if (sortingOrder === 'ASC') {
-														sorting('name', 'ASC');
-													} else {
-														sorting('name', 'DEC');
-													}
-												}}
-												style={{
-													transform: 'translateX(-6px)',
-													fontSize: '14px',
-													lineHeight: '21px',
-													fontFamily: 'Poppins',
-													fontWeight: '500',
-													width: '1%',
-													'white-space': 'nowrap'
-												}}
-											>
-												{users.length} Team Members
-												{sortingColumn === 'name' ? (
-													<a href='/' style={{ color: 'white', marginLeft: '2px' }}>
-														{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-													</a>
-												) : (
-													''
-												)}
-											</th>
+	{/* {showSegmenting(users)?.tabs.map((tab, index) => ( */}
+		{/* Render tables based on the selected segment */}
+			  {/* <h2>{segment.segmentTitle}</h2> */}
+			  {/* {selectedSegment === segment.segmentName && (						 */}
+		{segments.map((segment) => (
+			<div key={segment.segmentName}>
+								
+								<TeamTabBottom>
+									<table cellspacing='0' cellpadding='0'>
+										<thead>
+											<tr>
+												<th
+													onClick={e => {
+														e.preventDefault();
+														setSortingColumn('name');
+														if (sortingOrder === 'ASC') {
+															sorting('name', 'ASC');
+														} else {
+															sorting('name', 'DEC');
+														}
+													}}
+													style={{
+														transform: 'translateX(-6px)',
+														fontSize: '14px',
+														lineHeight: '21px',
+														fontFamily: 'Poppins',
+														fontWeight: '500',
+														width: '1%',
+														'white-space': 'nowrap'
+													}}
+												>
+													{segment.segmentTitle.length} {segment.segmentTitle}
+													{/* {tab.length} Team Members{showSegmenting(users)?.segmentTitle} */}
+													{sortingColumn === 'name' ? (
+														<a href='/' style={{ color: 'white', marginLeft: '2px' }}>
+															{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
+														</a>
+													) : (
+														''
+													)}
+												</th>
 
-											<th
-												/* YSM start */
-												onClick={() => handleSorting('completed_todo')}
-												style={{
-													textAlign: 'left',
-													position: 'relative',
-													right: '-30px',
-													paddingRight: '5rem',
-													fontSize: '14px',
-													lineHeight: '21px',
-													fontFamily: 'Poppins',
-													fontWeight: '500',
-													width: 'max-content',
-													cursor: 'pointer'
-													/* YSM end */
-												}}
-											>
-												Activity
-												{/* YSM start */}
-												{sortingColumn === 'completed_todo' && (
-													<span style={{ color: 'white', marginLeft: '2px' }}>
-														{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-													</span>
-												)}
-												{/* YSM end */}
-											</th>
+												<th
+													/* YSM start */
+													onClick={() => handleSorting('completed_todo')}
+													style={{
+														textAlign: 'left',
+														position: 'relative',
+														right: '-30px',
+														paddingRight: '5rem',
+														fontSize: '14px',
+														lineHeight: '21px',
+														fontFamily: 'Poppins',
+														fontWeight: '500',
+														width: 'max-content',
+														cursor: 'pointer'
+														/* YSM end */
+													}}
+												>
+													Activity
+													{/* YSM start */}
+													{sortingColumn === 'completed_todo' && (
+														<span style={{ color: 'white', marginLeft: '2px' }}>
+															{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
+														</span>
+													)}
+													{/* YSM end */}
+												</th>
 
-											<th
-												onClick={e => {
-													e.preventDefault();
-													setSortingColumn('tasks_count');
-													if (sortingOrder === 'ASC') {
-														sorting('tasks_count', 'ASC');
-													} else {
-														sorting('tasks_count', 'DEC');
-													}
-												}}
-												style={{
-													textAlign: 'center',
-													paddingRight: '2%',
-													fontSize: '14px',
-													lineHeight: '21px',
-													fontFamily: 'Poppins',
-													fontWeight: '500',
-													width: '1%',
-													'white-space': 'nowrap'
-												}}
-											>
-												Tasks
-												{sortingColumn === 'tasks_count' ? (
-													<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
-														{sortingOrder === 'ASC' ? (
-															<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
-														) : (
-															<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
-														)}
-													</a>
-												) : (
-													''
-												)}{' '}
-											</th>
-											{/* <th
-												onClick={e => {
-													e.preventDefault();
-													setSortingColumn('active_count');
-													if (sortingOrder === 'ASC') {
-														sorting('active_count', 'ASC');
-													} else {
-														sorting('active_count', 'DEC');
-													}
-												}}
-												style={{
-													textAlign: 'center',
-													paddingRight: '1.5rem',
-													fontSize: '14px',
-													lineHeight: '21px',
-													fontFamily: 'Poppins',
-													fontWeight: '500'
-												}}
-											>
-												Comments
-												{sortingColumn === 'active_count' ? (
-													<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
-														{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-													</a>
-												) : (
-													''
-												)}
-											</th> */}
-											<th
-												onClick={e => {
-													e.preventDefault();
-													setSortingColumn('project_ids');
-													if (sortingOrder === 'ASC') {
-														sorting('project_ids', 'ASC');
-													} else {
-														sorting('project_ids', 'DEC');
-													}
-												}}
-												style={{
-													textAlign: 'center',
-													// paddingRight: '1.5rem',
-													fontSize: '14px',
-													lineHeight: '21px',
-													fontFamily: 'Poppins',
-													fontWeight: '500',
-													width: '1%',
-													'white-space': 'nowrap'
-												}}
-											>
-												Projects
-												{sortingColumn === 'project_ids' ? (
-													<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
-														{sortingOrder === 'ASC' ? (
-															<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
-														) : (
-															<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
-														)}
-													</a>
-												) : (
-													''
-												)}
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										{showSegmenting(users)?.map((tab, key) =>
-										<>
-										
-											{tab.map((user, ind) => {
-												return (
-													<>
-														<TableRow
-															key={key}
-															img={user.avatar}
-															user_id={user.user_id}
-															tasks={user.tasks_count}
-															name={user.name}
-															active={user.active_count}
-															active_todo={user.active_todo_count}
-															projects={user.project_ids}
-															completed_todo={user.completed_todo}
-															last_active_at={user.last_active_at}
-															projectsdata={projects}
-															data={data.users}
-															getTeamWorkData={getTeamWorkData}
-															setLoading={setLoading}
-														/>
-													</>
-												);
-											})}
+												<th
+													onClick={e => {
+														e.preventDefault();
+														setSortingColumn('tasks_count');
+														if (sortingOrder === 'ASC') {
+															sorting('tasks_count', 'ASC');
+														} else {
+															sorting('tasks_count', 'DEC');
+														}
+													}}
+													style={{
+														textAlign: 'center',
+														paddingRight: '2%',
+														fontSize: '14px',
+														lineHeight: '21px',
+														fontFamily: 'Poppins',
+														fontWeight: '500',
+														width: '1%',
+														'white-space': 'nowrap'
+													}}
+												>
+													Tasks
+													{sortingColumn === 'tasks_count' ? (
+														<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
+															{sortingOrder === 'ASC' ? (
+																<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
+															) : (
+																<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
+															)}
+														</a>
+													) : (
+														''
+													)}{' '}
+												</th>
+												<th
+													onClick={e => {
+														e.preventDefault();
+														setSortingColumn('project_ids');
+														if (sortingOrder === 'ASC') {
+															sorting('project_ids', 'ASC');
+														} else {
+															sorting('project_ids', 'DEC');
+														}
+													}}
+													style={{
+														textAlign: 'center',
+														// paddingRight: '1.5rem',
+														fontSize: '14px',
+														lineHeight: '21px',
+														fontFamily: 'Poppins',
+														fontWeight: '500',
+														width: '1%',
+														'white-space': 'nowrap'
+													}}
+												>
+													Projects
+													{sortingColumn === 'project_ids' ? (
+														<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
+															{sortingOrder === 'ASC' ? (
+																<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
+															) : (
+																<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
+															)}
+														</a>
+													) : (
+														''
+													)}
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<>
+												{/* {tab.map((user, key) => {
+													return (
+														<>
+															<TableRow
+																key={key}
+																img={user.avatar}
+																user_id={user.user_id}
+																tasks={user.tasks_count}
+																name={user.name}
+																active={user.active_count}
+																active_todo={user.active_todo_count}
+																projects={user.project_ids}
+																completed_todo={user.completed_todo}
+																last_active_at={user.last_active_at}
+																projectsdata={projects}
+																data={data.users}
+																getTeamWorkData={getTeamWorkData}
+																setLoading={setLoading}
+															/>
+														</>
+													);
+												})} */}
+												{showSegmenting(users)?.tabs.map((tab, index) => (
+                  <React.Fragment key={index}>
+					{/* Add subheading for the sub-table here */}
+					<tr>
+                        <th colSpan="1" style={{
+								textAlign: 'center',
+								paddingRight: '2%',
+								fontSize: '14px',
+								lineHeight: '21px',
+								fontFamily: 'Poppins',
+								fontWeight: '500',
+								width: '1%',
+								'white-space': 'nowrap'
+							}}>
+                          Subheading for this sub-table
+                        </th>
+                      </tr>
+                    {tab.map((user, key) => (
+                      <TableRow
+                        key={key}
+                        img={user.avatar}
+                        user_id={user.user_id}
+                        tasks={user.tasks_count}
+                        name={user.name}
+                        active={user.active_count}
+                        active_todo={user.active_todo_count}
+                        projects={user.project_ids}
+                        completed_todo={user.completed_todo}
+                        last_active_at={user.last_active_at}
+                        projectsdata={projects}
+                        data={data.users}
+                        getTeamWorkData={getTeamWorkData}
+                        setLoading={setLoading}
+                      />
+                    ))}
+                  </React.Fragment>
+                ))}
 											</>
-										)}
-										{users
-											? // users.map((user, key) => {
-											  // 		return (
-											  // 			<>
-											  // 				<TableRow
-											  // 					key={key}
-											  // 					img={user.avatar}
-											  // 					user_id={user.user_id}
-											  // 					tasks={user.tasks_count}
-											  // 					name={user.name}
-											  // 					active={user.active_count}
-											  // 					active_todo={user.active_todo_count}
-											  // 					projects={user.project_ids}
-											  // 					completed_todo={user.completed_todo}
-											  // 					last_active_at={user.last_active_at}
-											  // 					projectsdata={projects}
-											  // 					data={data.users}
-											  // 					getTeamWorkData={getTeamWorkData}
-											  // 					setLoading={setLoading}
-											  // 				/>
-											  // 			</>
-											  // 		);
-											  //   })
-											  ''
-											: ''}
-										{moreUsers.map(moreUser => (
-											<MoreUsers
-												key={moreUser.name}
-												name={moreUser.name}
-												color={moreUser.color}
-												ticks={moreUser.ticks}
-												imgSrc={moreUser.imgSrc}
-											/>
-										))}
-									</tbody>
-								</table>
-								{/* *************************** YSM S ******************************* */}
-								<div>
-									<div>
-										<p
-											style={{
-												color: 'red',
-												fontSize: 'large',
-												fontSize: 'large',
-												marginBottom: '10px'
-											}}
-										>
-											{dynamicUserDatas.absents.length} Absents:{' '}
-											{dynamicUserDatas.absents.length > 0 && (
-												<span style={{ color: 'white', fontSize: 'small' }}>
-													{dynamicUserDatas.absents.map((user, index) => (
-														<span key={user.user_id}>
-															{user.name}
-															{index < dynamicUserDatas.absents.length - 1 ? ', ' : ''}
-														</span>
-													))}
-												</span>
-											)}
-										</p>
-									</div>
-									<div>
-										<p
-											style={{
-												color: 'yellow',
-												fontSize: 'large',
-												fontSize: 'large',
-												marginBottom: '10px'
-											}}
-										>
-											{dynamicUserDatas.slowdowns.length} Slowdowns:{' '}
-											{dynamicUserDatas.slowdowns.length > 0 && (
-												<span style={{ color: 'white', fontSize: 'small' }}>
-													{dynamicUserDatas.slowdowns.map((user, index) => (
-														<span key={user.user_id}>
-															{user.name}
-															{index < dynamicUserDatas.slowdowns.length - 1 ? ', ' : ''}
-														</span>
-													))}
-												</span>
-											)}
-										</p>
-									</div>
-									<div>
-										<p
-											style={{
-												color: '#13b497',
-												fontSize: 'large',
-												fontSize: 'large',
-												marginBottom: '10px'
-											}}
-										>
-											{dynamicUserDatas.idles.length} Idles:{' '}
-											{dynamicUserDatas.idles.length > 0 && (
-												<span style={{ color: 'white', fontSize: 'small' }}>
-													{dynamicUserDatas.idles.map((user, index) => (
-														<span key={user.user_id}>
-															{user.name}
-															{index < dynamicUserDatas.idles.length - 1 ? ', ' : ''}
-														</span>
-													))}
-												</span>
-											)}
-										</p>
-									</div>
-								</div>
-								{/* *************************** YSM E ******************************* */}
 
-								{/* Display the counts and names of absent users for each color category */}
-								{Object.keys(userCounts).map(color => (
-									<div key={color}>
-										{userCounts[color].length > 0 && (
-											<p
-												style={{
-													color: color,
-													width: '100%',
-													fontSize: 'large',
-													marginBottom: '5px'
-												}}
-											>
-												{userCounts[color].length}{' '}
-												{color === 'red' ? 'Absents' : color === 'yellow' ? 'Slowdowns' : 'Idles'}:{' '}
-												{userCounts[color].map((user, index) => (
-													<span key={user.name} style={{ color: 'white', width: '100%' }}>
-														{user.name}
-														{index < userCounts[color].length - 1 ? ', ' : ''}
-													</span>
-												))}
-											</p>
-										)}
-									</div>
-								))}
-								{showActionButtons && (
-									<MdContainer maxWidth='md'>
-										{token && token !== 'undefined' && new Date(token_expiry_date) > new Date() && (
-											<Grid container spacing={3} direction='row' justifyContent='center'>
-												<Grid item>
-													<Button
-														variant='contained'
-														color='primary'
-														onClick={handleOpenProjectModal}
-													>
-														Add New Project
-													</Button>
+											{users
+												? // users.map((user, key) => {
+												  // 		return (
+												  // 			<>
+												  // 				<TableRow
+												  // 					key={key}
+												  // 					img={user.avatar}
+												  // 					user_id={user.user_id}
+												  // 					tasks={user.tasks_count}
+												  // 					name={user.name}
+												  // 					active={user.active_count}
+												  // 					active_todo={user.active_todo_count}
+												  // 					projects={user.project_ids}
+												  // 					completed_todo={user.completed_todo}
+												  // 					last_active_at={user.last_active_at}
+												  // 					projectsdata={projects}
+												  // 					data={data.users}
+												  // 					getTeamWorkData={getTeamWorkData}
+												  // 					setLoading={setLoading}
+												  // 				/>
+												  // 			</>
+												  // 		);
+												  //   })
+												  ''
+												: ''}
+										</tbody>
+									</table>
+									{showActionButtons && (
+										<MdContainer maxWidth='md'>
+											{token &&
+												token !== 'undefined' &&
+												new Date(token_expiry_date) > new Date() && (
+													<Grid container spacing={3} direction='row' justifyContent='center'>
+														<Grid item>
+															<Button
+																variant='contained'
+																color='primary'
+																onClick={handleOpenProjectModal}
+															>
+																Add New Project
+															</Button>
+														</Grid>
+														<Grid item>
+															<Button
+																variant='contained'
+																onClick={handleRefreshUserList}
+																color='primary'
+															>
+																Refresh User List
+															</Button>
+														</Grid>
+													</Grid>
+												)}
+											{(!token ||
+												token === 'undefined' ||
+												new Date(token_expiry_date) <= new Date()) && (
+												<Grid container spacing={3} direction='row' justifyContent='center'>
+													<Grid item>
+														<a href='https://launchpad.37signals.com/authorization/new?type=web_server&client_id=7d03697adc886996a673634b89d51d8febb29979&redirect_uri=https://touch-dashborad.herokuapp.com/auth/callback'>
+															<Button variant='contained' color='primary'>
+																Login to Basecamp
+															</Button>
+														</a>
+													</Grid>
 												</Grid>
-												<Grid item>
-													<Button
-														variant='contained'
-														onClick={handleRefreshUserList}
-														color='primary'
-													>
-														Refresh User List
-													</Button>
-												</Grid>
-											</Grid>
-										)}
-										{(!token ||
-											token === 'undefined' ||
-											new Date(token_expiry_date) <= new Date()) && (
-											<Grid container spacing={3} direction='row' justifyContent='center'>
-												<Grid item>
-													<a href='https://launchpad.37signals.com/authorization/new?type=web_server&client_id=7d03697adc886996a673634b89d51d8febb29979&redirect_uri=https://touch-dashborad.herokuapp.com/auth/callback'>
-														<Button variant='contained' color='primary'>
-															Login to Basecamp
-														</Button>
-													</a>
-												</Grid>
-											</Grid>
-										)}
-									</MdContainer>
-								)}
-							</TeamTabBottom>
+											)}
+										</MdContainer>
+									)}
+								</TeamTabBottom>
+								 {/* )} */}
+								</div>
+							))}
 						</>
 					)}
+					{/* *************************** YSM S ******************************* */}
+					{
+						<div
+							style={{
+								padding: '2rem 1.5rem'
+							}}
+						>
+							<div>
+								<p
+									style={{
+										color: 'red',
+										fontSize: '1.35rem',
+										marginBottom: '10px'
+									}}
+								>
+									{dynamicUserDatas.absents.length} Absents:{' '}
+									{dynamicUserDatas.absents.length > 0 && (
+										<span style={{ color: 'white', fontSize: 'small' }}>
+											{dynamicUserDatas.absents.map((user, index) => (
+												<span key={user.user_id}>
+													{user.name.split(' ')[0]}
+													{index < dynamicUserDatas.absents.length - 1 ? ', ' : ''}
+												</span>
+											))}
+										</span>
+									)}
+								</p>
+							</div>
+							<div>
+								<p
+									style={{
+										color: 'yellow',
+										fontSize: '1.35rem',
+										marginBottom: '10px'
+									}}
+								>
+									{dynamicUserDatas.slowdowns.length} Slowdowns:{' '}
+									{dynamicUserDatas.slowdowns.length > 0 && (
+										<span style={{ color: 'white', fontSize: 'small' }}>
+											{dynamicUserDatas.slowdowns.map((user, index) => (
+												<span key={user.user_id}>
+													{user.name.split(' ')[0]}
+													{index < dynamicUserDatas.slowdowns.length - 1 ? ', ' : ''}
+												</span>
+											))}
+										</span>
+									)}
+								</p>
+							</div>
+							<div>
+								<p
+									style={{
+										color: '#13b497',
+										fontSize: '1.35rem'
+									}}
+								>
+									{dynamicUserDatas.idles.length} Idles:{' '}
+									{dynamicUserDatas.idles.length > 0 && (
+										<span style={{ color: 'white', fontSize: 'small' }}>
+											{dynamicUserDatas.idles.map((user, index) => (
+												<span key={user.user_id}>
+													{user.name.split(' ')[0]}
+													{index < dynamicUserDatas.idles.length - 1 ? ', ' : ''}
+												</span>
+											))}
+										</span>
+									)}
+								</p>
+							</div>
+						</div>
+					}
+					{/* *************************** YSM E ******************************* */}
 					{tabValue === 'Projects' && (
 						<Projects>
 							<h2>Projects</h2>
@@ -972,34 +934,6 @@ const TeamWork = ({
 					)}
 				</Container>
 				{/* Modal for deleting team member */}
-				{/* <Modal
-					open={openDeleteModal}
-					onClose={handleCloseDeleteModal}
-					aria-labelledby="modal-modal-title"
-					aria-describedby="modal-modal-description"
-				>
-					 <Box sx={deleteMemberStyle}>
-					<Card sx={{ display: 'flex' }}>
-						<CardMedia
-							component="img"
-							sx={{ width: 151 }}
-							image={deleteMember.img}
-							alt="Live from space album cover"
-						/>
-						<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-							<CardContent sx={{ flex: '1 0 auto' }}>
-							<Typography component="div" variant="h5">
-								{deleteMember.name.split(' ')[0]}{' '}
-							</Typography>
-							</CardContent>
-							<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-								<Button variant='contained'  color='primary' onClick={()=>handleDeleteMember(deleteMember.user_id)}>Delete</Button>
-							</Box>
-						</Box>
-						
-					</Card>
-					 </Box>
-				</Modal> */}
 
 				<Modal
 					open={openAddProjectModal}

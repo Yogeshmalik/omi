@@ -23,6 +23,9 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	const [isTeamWorkMaximized, setIsTeamWorkMaximized] = useState(false);
 
 	const [isActivityMax, setIsActivityMax] = useState(true);
+
+	const [isActivityMaxx, setIsActivityMaxx] = useState(true);
+	
 	const toggleMaximize = column => {
 		setIsActivityMaximized(column === 'activity' ? !isActivityMaximized : false);
 		setIsProjectMaximized(column === 'project' ? !isProjectMaximized : false);
@@ -31,6 +34,10 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 	};
 	const toggleMax = columns => {
 		setIsActivityMax(columns === 'activity' ? !isActivityMax : false);
+	};
+	const toggleMaxx = columns => {
+		setIsActivityMaxx( !isActivityMaxx );
+		
 	};
 
 	/* ======================= Yogesh end ========================== */
@@ -287,7 +294,7 @@ const BigDashboard = ({ selectedProject, setSelectedProject, timer }) => {
 							 isActivityMax
 								? styles.max
 								: styles.maximized
-						}`}
+						} `}
 					>
 						<div className={styles.outertopStatisticsBar}>
 							<div className={styles.topStatisticsBar}>
