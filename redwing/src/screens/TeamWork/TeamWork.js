@@ -83,7 +83,7 @@ const TeamWork = ({
 	/* YSM start */
 	const [loadings, setLoadings] = useState(true); // Add loading state if needed
 	const [dynamicUsers, setDynamicUsers] = useState([]);
-	
+	let countRef = React.useRef({ playgroundSegment: 0, projectSegment: 0, optimiseSegment: 0 });
 
 	const dynamicUserData = {
 		absents: [],
@@ -226,35 +226,35 @@ const TeamWork = ({
 	// 		});
 	// };
 
-/* ********************** YSM S ****************** */
-const [selectedSegment, setSelectedSegment] = useState('defaultSegment');
+	/* ********************** YSM S ****************** */
+	const [selectedSegment, setSelectedSegment] = useState('defaultSegment');
 
-  const handleSegmentChange = (segmentName) => {
-    setSelectedSegment(segmentName);
-  };
+	const handleSegmentChange = segmentName => {
+		setSelectedSegment(segmentName);
+	};
 
-// Render Segments
-const showSegmenting = users => {
-	const segmentName = 'projectSegment' && 'optimiseSegment' && 'defaultSegment';
+	// Render Segments
+	const showSegmenting = (users, segment) => {
+		const segmentName = segment.segmentName;
 		let segmentTitle;
-		if (segmentName === 'defaultSegment') {
-			segmentTitle = 'Team Members';
+		if (segmentName === 'playgroundSegment') {
 			const tab1 = [],
-			tab2 = [];
+				tab2 = [];
 			users?.reduce((prev, acc) => {
 				const isRedWing =
-				Object.values(acc?.projects)
-				?.map(projectDetails => projectDetails?.project_name == 'RedWing')
-				.filter(Boolean).length > 0;
+					Object.values(acc?.projects)
+						?.map(projectDetails => projectDetails?.project_name == 'RedWing')
+						.filter(Boolean).length > 0;
 				if (!!isRedWing) {
 					tab1.push(acc);
 				} else tab2.push(acc);
 			}, []);
-			return { segmentTitle, tabs: [tab1, tab2] };
+			countRef.current.playgroundSegment = tab1.length + tab2.length;
+			return [tab1, tab2];
 		} else if (segmentName == 'projectSegment') {
 			segmentTitle = 'Project Segment';
 			const tab1 = [],
-			tab2 = [];
+				tab2 = [];
 			users?.reduce((prev, acc) => {
 				if (acc?.project_ids?.length > 0) {
 					tab1.push(acc);
@@ -263,12 +263,13 @@ const showSegmenting = users => {
 					tab2.push(acc);
 				}
 			}, []);
-			return { segmentTitle, tabs: [tab1, tab2] }
+			countRef.current.projectSegment = tab1.length + tab2.length;
+			return [tab1, tab2];
 		} else if (segmentName == 'optimiseSegment') {
 			segmentTitle = 'Optimise Segment';
 			const tab1 = [],
-			tab2 = [],
-			tab3 = [];
+				tab2 = [],
+				tab3 = [];
 			users?.reduce((prev, acc) => {
 				if (acc?.completed_todo > 5) {
 					tab1.push(acc);
@@ -278,29 +279,43 @@ const showSegmenting = users => {
 					tab2.push(acc);
 				}
 			}, []);
-			return { segmentTitle, tabs: [tab1, tab2, tab3] };
+			countRef.current.optimiseSegment = tab1.length + tab2.length + tab3.length;
+			return [tab1, tab2, tab3];
 		}
 	};
-	
+
 	const segments = [
 		{
-			segmentName: 'defaultSegment',
-			segmentTitle: 'Team Members',
+			segmentName: 'playgroundSegment',
+			segmentTitle: 'Playground'
 		},
 		{
 			segmentName: 'projectSegment',
-			segmentTitle: 'In Project Segment',
+			segmentTitle: 'Project Segment'
 		},
 		{
 			segmentName: 'optimiseSegment',
-			segmentTitle: 'In Optimise Segment',
-		},
-		{
-			segmentName: 'playgroundSegment',
-			segmentTitle: 'In Playground',
-		},
+			segmentTitle: 'Performance Segment'
+		}
 	];
-	
+
+	const tableNames = {
+		playgroundSegment: {
+			0: 'Red Wing',
+			1: 'Client Projects'
+		},
+
+		projectSegment: {
+			0: 'Multi Task ',
+			1: 'Idle '
+		},
+		optimiseSegment: {
+			0: '5 + Green Ticks ',
+			1: '1-5 Green Ticks',
+			2: 'No Green Ticks'
+		}
+	};
+
 	/* ********************** YSM E ****************** */
 	useEffect(() => {
 		var users = [];
@@ -532,148 +547,155 @@ const showSegmenting = users => {
 									</table>
 								</TeamTabTop>
 							)}
-	{/* {showSegmenting(users)?.tabs.map((tab, index) => ( */}
-		{/* Render tables based on the selected segment */}
-			  {/* <h2>{segment.segmentTitle}</h2> */}
-			  {/* {selectedSegment === segment.segmentName && (						 */}
-		{segments.map((segment) => (
-			<div key={segment.segmentName}>
-								
-								<TeamTabBottom>
-									<table cellspacing='0' cellpadding='0'>
-										<thead>
-											<tr>
-												<th
-													onClick={e => {
-														e.preventDefault();
-														setSortingColumn('name');
-														if (sortingOrder === 'ASC') {
-															sorting('name', 'ASC');
-														} else {
-															sorting('name', 'DEC');
-														}
-													}}
-													style={{
-														transform: 'translateX(-6px)',
-														fontSize: '14px',
-														lineHeight: '21px',
-														fontFamily: 'Poppins',
-														fontWeight: '500',
-														width: '1%',
-														'white-space': 'nowrap'
-													}}
-												>
-													{segment.segmentTitle.length} {segment.segmentTitle}
-													{/* {tab.length} Team Members{showSegmenting(users)?.segmentTitle} */}
-													{sortingColumn === 'name' ? (
-														<a href='/' style={{ color: 'white', marginLeft: '2px' }}>
-															{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-														</a>
-													) : (
-														''
-													)}
-												</th>
+							{/* {showSegmenting(users)?.tabs.map((tab, index) => ( */}
+							{/* Render tables based on the selected segment */}
+							{/* <h2>{segment.segmentTitle}</h2> */}
+							{/* {selectedSegment === segment.segmentName && (						 */}
+							{segments.map(segment => (
+								<div key={segment.segmentName}>
+									<TeamTabBottom>
+										<table cellspacing='0' cellpadding='0'>
+											<thead>
+												<tr>
+													<th
+														onClick={e => {
+															e.preventDefault();
+															setSortingColumn('name');
+															if (sortingOrder === 'ASC') {
+																sorting('name', 'ASC');
+															} else {
+																sorting('name', 'DEC');
+															}
+														}}
+														style={{
+															transform: 'translateX(-6px)',
+															fontSize: '14px',
+															lineHeight: '21px',
+															fontFamily: 'Poppins',
+															fontWeight: '500',
+															width: '1%',
+															'white-space': 'nowrap'
+														}}
+													>
+														{countRef.current[segment.segmentName]} {segment.segmentTitle}
+														{/* {tab.length} Team Members{showSegmenting(users)?.segmentTitle} */}
+														{sortingColumn === 'name' ? (
+															<a href='/' style={{ color: 'white', marginLeft: '2px' }}>
+																{sortingOrder === 'ASC' ? (
+																	<ArrowUpwardIcon />
+																) : (
+																	<ArrowDownwardIcon />
+																)}
+															</a>
+														) : (
+															''
+														)}
+													</th>
 
-												<th
-													/* YSM start */
-													onClick={() => handleSorting('completed_todo')}
-													style={{
-														textAlign: 'left',
-														position: 'relative',
-														right: '-30px',
-														paddingRight: '5rem',
-														fontSize: '14px',
-														lineHeight: '21px',
-														fontFamily: 'Poppins',
-														fontWeight: '500',
-														width: 'max-content',
-														cursor: 'pointer'
-														/* YSM end */
-													}}
-												>
-													Activity
-													{/* YSM start */}
-													{sortingColumn === 'completed_todo' && (
-														<span style={{ color: 'white', marginLeft: '2px' }}>
-															{sortingOrder === 'ASC' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
-														</span>
-													)}
-													{/* YSM end */}
-												</th>
+													<th
+														/* YSM start */
+														onClick={() => handleSorting('completed_todo')}
+														style={{
+															textAlign: 'left',
+															position: 'relative',
+															right: '-30px',
+															paddingRight: '5rem',
+															fontSize: '14px',
+															lineHeight: '21px',
+															fontFamily: 'Poppins',
+															fontWeight: '500',
+															width: 'max-content',
+															cursor: 'pointer'
+															/* YSM end */
+														}}
+													>
+														Activity
+														{/* YSM start */}
+														{sortingColumn === 'completed_todo' && (
+															<span style={{ color: 'white', marginLeft: '2px' }}>
+																{sortingOrder === 'ASC' ? (
+																	<ArrowUpwardIcon />
+																) : (
+																	<ArrowDownwardIcon />
+																)}
+															</span>
+														)}
+														{/* YSM end */}
+													</th>
 
-												<th
-													onClick={e => {
-														e.preventDefault();
-														setSortingColumn('tasks_count');
-														if (sortingOrder === 'ASC') {
-															sorting('tasks_count', 'ASC');
-														} else {
-															sorting('tasks_count', 'DEC');
-														}
-													}}
-													style={{
-														textAlign: 'center',
-														paddingRight: '2%',
-														fontSize: '14px',
-														lineHeight: '21px',
-														fontFamily: 'Poppins',
-														fontWeight: '500',
-														width: '1%',
-														'white-space': 'nowrap'
-													}}
-												>
-													Tasks
-													{sortingColumn === 'tasks_count' ? (
-														<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
-															{sortingOrder === 'ASC' ? (
-																<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
-															) : (
-																<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
-															)}
-														</a>
-													) : (
-														''
-													)}{' '}
-												</th>
-												<th
-													onClick={e => {
-														e.preventDefault();
-														setSortingColumn('project_ids');
-														if (sortingOrder === 'ASC') {
-															sorting('project_ids', 'ASC');
-														} else {
-															sorting('project_ids', 'DEC');
-														}
-													}}
-													style={{
-														textAlign: 'center',
-														// paddingRight: '1.5rem',
-														fontSize: '14px',
-														lineHeight: '21px',
-														fontFamily: 'Poppins',
-														fontWeight: '500',
-														width: '1%',
-														'white-space': 'nowrap'
-													}}
-												>
-													Projects
-													{sortingColumn === 'project_ids' ? (
-														<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
-															{sortingOrder === 'ASC' ? (
-																<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
-															) : (
-																<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
-															)}
-														</a>
-													) : (
-														''
-													)}
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<>
-												{/* {tab.map((user, key) => {
+													<th
+														onClick={e => {
+															e.preventDefault();
+															setSortingColumn('tasks_count');
+															if (sortingOrder === 'ASC') {
+																sorting('tasks_count', 'ASC');
+															} else {
+																sorting('tasks_count', 'DEC');
+															}
+														}}
+														style={{
+															textAlign: 'center',
+															paddingRight: '2%',
+															fontSize: '14px',
+															lineHeight: '21px',
+															fontFamily: 'Poppins',
+															fontWeight: '500',
+															width: '1%',
+															'white-space': 'nowrap'
+														}}
+													>
+														Tasks
+														{sortingColumn === 'tasks_count' ? (
+															<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
+																{sortingOrder === 'ASC' ? (
+																	<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
+																) : (
+																	<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
+																)}
+															</a>
+														) : (
+															''
+														)}{' '}
+													</th>
+													<th
+														onClick={e => {
+															e.preventDefault();
+															setSortingColumn('project_ids');
+															if (sortingOrder === 'ASC') {
+																sorting('project_ids', 'ASC');
+															} else {
+																sorting('project_ids', 'DEC');
+															}
+														}}
+														style={{
+															textAlign: 'center',
+															// paddingRight: '1.5rem',
+															fontSize: '14px',
+															lineHeight: '21px',
+															fontFamily: 'Poppins',
+															fontWeight: '500',
+															width: '1%',
+															'white-space': 'nowrap'
+														}}
+													>
+														Projects
+														{sortingColumn === 'project_ids' ? (
+															<a style={{ color: 'white', marginLeft: '2px' }} href='/'>
+																{sortingOrder === 'ASC' ? (
+																	<ArrowUpwardIcon style={{ position: 'relative', top: '2px' }} />
+																) : (
+																	<ArrowDownwardIcon style={{ position: 'relative', top: '2px' }} />
+																)}
+															</a>
+														) : (
+															''
+														)}
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<>
+													{/* {tab.map((user, key) => {
 													return (
 														<>
 															<TableRow
@@ -695,115 +717,119 @@ const showSegmenting = users => {
 														</>
 													);
 												})} */}
-												{showSegmenting(users)?.tabs.map((tab, index) => (
-                  <React.Fragment key={index}>
-					{/* Add subheading for the sub-table here */}
-					<tr>
-                        <th colSpan="1" style={{
-								textAlign: 'center',
-								paddingRight: '2%',
-								fontSize: '14px',
-								lineHeight: '21px',
-								fontFamily: 'Poppins',
-								fontWeight: '500',
-								width: '1%',
-								'white-space': 'nowrap'
-							}}>
-                          Subheading for this sub-table
-                        </th>
-                      </tr>
-                    {tab.map((user, key) => (
-                      <TableRow
-                        key={key}
-                        img={user.avatar}
-                        user_id={user.user_id}
-                        tasks={user.tasks_count}
-                        name={user.name}
-                        active={user.active_count}
-                        active_todo={user.active_todo_count}
-                        projects={user.project_ids}
-                        completed_todo={user.completed_todo}
-                        last_active_at={user.last_active_at}
-                        projectsdata={projects}
-                        data={data.users}
-                        getTeamWorkData={getTeamWorkData}
-                        setLoading={setLoading}
-                      />
-                    ))}
-                  </React.Fragment>
-                ))}
-											</>
+													{showSegmenting(users, segment)?.map((tab, index) => (
+														<React.Fragment key={index}>
+															{/* Add subheading for the sub-table here */}
+															<tr>
+																<th
+																	colSpan='1'
+																	style={{
+																		// textAlign: 'center',
+																		paddingRight: '2%',
+																		fontSize: '14px',
+																		lineHeight: '21px',
+																		fontFamily: 'Poppins',
+																		fontWeight: '500',
+																		width: '1%',
+																		'white-space': 'nowrap', 
+																		paddingBottom: '10px'
+																	}}
+																>
+																	{tab.length} In {tableNames[segment.segmentName][index]}
+																</th>
+															</tr>
+															{tab.map((user, key) => (
+																<TableRow
+																	key={key}
+																	img={user.avatar}
+																	user_id={user.user_id}
+																	tasks={user.tasks_count}
+																	name={user.name}
+																	active={user.active_count}
+																	active_todo={user.active_todo_count}
+																	projects={user.project_ids}
+																	completed_todo={user.completed_todo}
+																	last_active_at={user.last_active_at}
+																	projectsdata={projects}
+																	data={data.users}
+																	getTeamWorkData={getTeamWorkData}
+																	setLoading={setLoading}
+																/>
+															))}
+														</React.Fragment>
+													))}
+												</>
 
-											{users
-												? // users.map((user, key) => {
-												  // 		return (
-												  // 			<>
-												  // 				<TableRow
-												  // 					key={key}
-												  // 					img={user.avatar}
-												  // 					user_id={user.user_id}
-												  // 					tasks={user.tasks_count}
-												  // 					name={user.name}
-												  // 					active={user.active_count}
-												  // 					active_todo={user.active_todo_count}
-												  // 					projects={user.project_ids}
-												  // 					completed_todo={user.completed_todo}
-												  // 					last_active_at={user.last_active_at}
-												  // 					projectsdata={projects}
-												  // 					data={data.users}
-												  // 					getTeamWorkData={getTeamWorkData}
-												  // 					setLoading={setLoading}
-												  // 				/>
-												  // 			</>
-												  // 		);
-												  //   })
-												  ''
-												: ''}
-										</tbody>
-									</table>
-									{showActionButtons && (
-										<MdContainer maxWidth='md'>
-											{token &&
-												token !== 'undefined' &&
-												new Date(token_expiry_date) > new Date() && (
+												{users
+													? // users.map((user, key) => {
+													  // 		return (
+													  // 			<>
+													  // 				<TableRow
+													  // 					key={key}
+													  // 					img={user.avatar}
+													  // 					user_id={user.user_id}
+													  // 					tasks={user.tasks_count}
+													  // 					name={user.name}
+													  // 					active={user.active_count}
+													  // 					active_todo={user.active_todo_count}
+													  // 					projects={user.project_ids}
+													  // 					completed_todo={user.completed_todo}
+													  // 					last_active_at={user.last_active_at}
+													  // 					projectsdata={projects}
+													  // 					data={data.users}
+													  // 					getTeamWorkData={getTeamWorkData}
+													  // 					setLoading={setLoading}
+													  // 				/>
+													  // 			</>
+													  // 		);
+													  //   })
+													  ''
+													: ''}
+											</tbody>
+										</table>
+										{showActionButtons && (
+											<MdContainer maxWidth='md'>
+												{token &&
+													token !== 'undefined' &&
+													new Date(token_expiry_date) > new Date() && (
+														<Grid container spacing={3} direction='row' justifyContent='center'>
+															<Grid item>
+																<Button
+																	variant='contained'
+																	color='primary'
+																	onClick={handleOpenProjectModal}
+																>
+																	Add New Project
+																</Button>
+															</Grid>
+															<Grid item>
+																<Button
+																	variant='contained'
+																	onClick={handleRefreshUserList}
+																	color='primary'
+																>
+																	Refresh User List
+																</Button>
+															</Grid>
+														</Grid>
+													)}
+												{(!token ||
+													token === 'undefined' ||
+													new Date(token_expiry_date) <= new Date()) && (
 													<Grid container spacing={3} direction='row' justifyContent='center'>
 														<Grid item>
-															<Button
-																variant='contained'
-																color='primary'
-																onClick={handleOpenProjectModal}
-															>
-																Add New Project
-															</Button>
-														</Grid>
-														<Grid item>
-															<Button
-																variant='contained'
-																onClick={handleRefreshUserList}
-																color='primary'
-															>
-																Refresh User List
-															</Button>
+															<a href='https://launchpad.37signals.com/authorization/new?type=web_server&client_id=7d03697adc886996a673634b89d51d8febb29979&redirect_uri=https://touch-dashborad.herokuapp.com/auth/callback'>
+																<Button variant='contained' color='primary'>
+																	Login to Basecamp
+																</Button>
+															</a>
 														</Grid>
 													</Grid>
 												)}
-											{(!token ||
-												token === 'undefined' ||
-												new Date(token_expiry_date) <= new Date()) && (
-												<Grid container spacing={3} direction='row' justifyContent='center'>
-													<Grid item>
-														<a href='https://launchpad.37signals.com/authorization/new?type=web_server&client_id=7d03697adc886996a673634b89d51d8febb29979&redirect_uri=https://touch-dashborad.herokuapp.com/auth/callback'>
-															<Button variant='contained' color='primary'>
-																Login to Basecamp
-															</Button>
-														</a>
-													</Grid>
-												</Grid>
-											)}
-										</MdContainer>
-									)}
-								</TeamTabBottom>
-								 {/* )} */}
+											</MdContainer>
+										)}
+									</TeamTabBottom>
+									{/* )} */}
 								</div>
 							))}
 						</>
